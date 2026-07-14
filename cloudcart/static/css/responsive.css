@@ -190,3 +190,140 @@ CloudCart Responsive Styles
     height: 36px;
   }
 }
+
+/*
+=========================================
+Products, Product Details,
+Cart & Dashboard Responsive
+=========================================
+*/
+
+/* =====================================
+   Tablets (≤ 992px)
+===================================== */
+
+@media (max-width: 992px) {
+  .hero-container,
+  .product-details-grid,
+  .cart-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cart-item {
+    grid-template-columns: 120px 1fr;
+    gap: 1.5rem;
+  }
+
+  .cart-item .quantity-selector,
+  .cart-item .remove-item {
+    grid-column: 2;
+  }
+}
+
+/* =====================================
+   Mobile (≤ 768px)
+===================================== */
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+  }
+
+  .toolbar input,
+  .toolbar select {
+    width: 100%;
+  }
+
+  .hero {
+    padding: 4rem 0;
+  }
+
+  .hero-content,
+  .hero-image {
+    text-align: center;
+  }
+
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .products-grid,
+  .categories-grid,
+  .reviews-grid,
+  .statistics-grid,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .thumbnail-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-actions {
+    flex-direction: column;
+  }
+
+  .quantity-selector {
+    width: fit-content;
+  }
+
+  .chart-bars {
+    height: 220px;
+  }
+
+  .orders-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* =====================================
+   Small Mobile (≤ 576px)
+===================================== */
+
+@media (max-width: 576px) {
+  .cart-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .cart-item img {
+    max-width: 220px;
+    margin: auto;
+  }
+
+  .cart-item .quantity-selector,
+  .cart-item .remove-item {
+    grid-column: auto;
+    justify-self: center;
+  }
+
+  .product-details {
+    padding: 4rem 0;
+  }
+
+  .main-image,
+  .order-summary,
+  .dashboard-card {
+    padding: 1rem;
+  }
+
+  .chart-placeholder {
+    padding: 1rem;
+  }
+
+  .error-content h1 {
+    font-size: 4rem;
+  }
+}
