@@ -1,0 +1,42 @@
+<nav class="navbar">
+  <div class="container navbar-container">
+    <!-- Logo -->
+    <a href="{{ url_for('home') }}" class="logo">
+      <img
+        src="{{ url_for('static', filename='images/logo/logo.svg') }}"
+        alt="CloudCart Logo"
+      />
+      <span>CloudCart</span>
+    </a>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links" id="nav-links">
+      <li>
+        <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+      </li>
+
+      <li>
+        <a href="{{ url_for('products') }}" class="nav-link">Products</a>
+      </li>
+
+      <li>
+        <a href="{{ url_for('cart') }}" class="nav-link">
+          Cart
+          <span class="cart-count">0</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ url_for('admin') }}" class="nav-link">Admin</a>
+      </li>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
+      <img
+        src="{{ url_for('static', filename='images/icons/menu.svg') }}"
+        alt="Menu"
+      />
+    </button>
+  </div>
+</nav>
