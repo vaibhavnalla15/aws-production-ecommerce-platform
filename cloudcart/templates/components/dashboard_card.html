@@ -1,0 +1,22 @@
+<div class="card dashboard-card reveal">
+  <div class="dashboard-icon">
+    <img
+      src="{{ url_for('static', filename=(dashboard.icon if dashboard else 'images/icons/shopping-bag.svg')) }}"
+      alt="{{ dashboard.title if dashboard else 'Dashboard Icon' }}"
+    />
+  </div>
+
+  <div class="dashboard-content">
+    <p class="dashboard-title">
+      {{ dashboard.title if dashboard else "Total Products" }}
+    </p>
+
+    <h3 class="dashboard-value">
+      {{ dashboard.value if dashboard else "12" }}
+    </h3>
+
+    <span class="dashboard-description">
+      {{ dashboard.description if dashboard else "Products Available" }}
+    </span>
+  </div>
+</div>

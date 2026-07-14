@@ -1,0 +1,16 @@
+<div class="category-card card reveal">
+  <a href="{{ url_for('products') }}">
+    <img
+      src="{{ url_for('static', filename=(category.image if category else 'images/categories/laptops.jpg')) }}"
+      alt="{{ category.name if category else 'Laptops' }}"
+    />
+
+    <div class="category-overlay">
+      <div>
+        <h3>{{ category.name if category else "Laptops" }}</h3>
+
+        <p>{{ category.count if category else "3 Products" }}</p>
+      </div>
+    </div>
+  </a>
+</div>

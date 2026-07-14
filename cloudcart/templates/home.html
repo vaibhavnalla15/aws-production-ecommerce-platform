@@ -1,0 +1,133 @@
+{% extends "base.html" %} {% block title %}CloudCart | Premium Electronics{%
+endblock %} {% block content %}
+
+<!-- =====================================
+Hero Section
+===================================== -->
+
+<section class="hero">
+  <div class="container hero-container">
+    <div class="hero-content reveal">
+      <span class="hero-badge"> Premium Electronics Store </span>
+
+      <h1>
+        Experience Technology
+        <span class="text-gradient">Without Compromise</span>
+      </h1>
+
+      <p>
+        Discover premium laptops, smartphones, accessories, and smartwatches
+        from the world's most trusted brands.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="{{ url_for('products') }}" class="btn btn-primary">
+          Shop Now
+        </a>
+
+        <a href="#featured-products" class="btn btn-secondary">
+          Explore Products
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-image reveal">
+      <img
+        src="{{ url_for('static', filename='images/hero/hero-banner.jpg') }}"
+        alt="CloudCart Hero Banner"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Featured Products
+===================================== -->
+
+<section id="featured-products">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Featured Products</h2>
+
+      <p>
+        Carefully selected premium products loved by professionals and
+        technology enthusiasts.
+      </p>
+    </div>
+
+    <div class="products-grid">
+      {% include "components/product_card.html" %} {% include
+      "components/product_card.html" %} {% include
+      "components/product_card.html" %} {% include
+      "components/product_card.html" %}
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Categories
+===================================== -->
+
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>Shop by Category</h2>
+
+      <p>
+        Explore our curated collection across every major technology category.
+      </p>
+    </div>
+
+    <div class="categories-grid">
+      {% include "components/category_card.html" %} {% include
+      "components/category_card.html" %} {% include
+      "components/category_card.html" %} {% include
+      "components/category_card.html" %}
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Statistics
+===================================== -->
+
+<section>
+  <div class="container">
+    <div class="statistics-grid">
+      {% include "components/statistic_card.html" %} {% include
+      "components/statistic_card.html" %} {% include
+      "components/statistic_card.html" %} {% include
+      "components/statistic_card.html" %}
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Customer Reviews
+===================================== -->
+
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <h2>What Customers Say</h2>
+
+      <p>Trusted by thousands of customers around the world.</p>
+    </div>
+
+    <div class="reviews-grid">
+      {% include "components/review_card.html" %} {% include
+      "components/review_card.html" %} {% include "components/review_card.html"
+      %}
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Newsletter
+===================================== -->
+
+<section>
+  <div class="container">{% include "components/newsletter.html" %}</div>
+</section>
+
+{% endblock %}

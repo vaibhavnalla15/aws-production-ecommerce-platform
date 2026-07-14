@@ -1,0 +1,18 @@
+<div class="card review-card reveal">
+  <img
+    src="{{ url_for('static', filename=(review.avatar if review else 'images/avatars/customer-1.jpg')) }}"
+    alt="{{ review.name if review else 'Customer' }}"
+  />
+
+  <div class="product-rating">⭐⭐⭐⭐⭐</div>
+
+  <p>
+    "{{ review.message if review else 'CloudCart exceeded my expectations. The
+    shopping experience feels premium, the products are top quality, and
+    delivery was incredibly fast. Highly recommended!' }}"
+  </p>
+
+  <h4>{{ review.name if review else "Alex Johnson" }}</h4>
+
+  <span> {{ review.designation if review else "Verified Customer" }} </span>
+</div>
