@@ -1,0 +1,136 @@
+{% extends "base.html" %} {% block title %}Admin Dashboard | CloudCart{%
+endblock %} {% block content %}
+
+<!-- =====================================
+Dashboard Header
+===================================== -->
+
+<section class="dashboard-header">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="hero-badge"> Admin Dashboard </span>
+
+      <h1>
+        CloudCart
+        <span class="text-gradient">Analytics</span>
+      </h1>
+
+      <p>
+        Monitor products, orders, revenue, inventory, and recent business
+        activity from a single dashboard.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Dashboard Cards
+===================================== -->
+
+<section>
+  <div class="container">
+    <div class="dashboard-grid">
+      {% set dashboard = { "title": "Total Products", "value": "12",
+      "description": "Active Products", "icon": "images/icons/shopping-bag.svg"
+      } %} {% include "components/dashboard_card.html" %} {% set dashboard = {
+      "title": "Orders", "value": "1,284", "description": "Total Orders",
+      "icon": "images/icons/cart.svg" } %} {% include
+      "components/dashboard_card.html" %} {% set dashboard = { "title":
+      "Revenue", "value": "₹18.6L", "description": "Monthly Revenue", "icon":
+      "images/icons/shield.svg" } %} {% include "components/dashboard_card.html"
+      %} {% set dashboard = { "title": "Inventory", "value": "1,542",
+      "description": "Items in Stock", "icon": "images/icons/truck.svg" } %} {%
+      include "components/dashboard_card.html" %}
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Sales Overview
+===================================== -->
+
+<section>
+  <div class="container">
+    <div class="card reveal">
+      <div class="section-header">
+        <h2>Sales Overview</h2>
+
+        <p>Monthly sales performance (Demo Chart)</p>
+      </div>
+
+      <div class="chart-placeholder">
+        <div class="chart-bars">
+          <div class="bar" style="height: 40%"></div>
+          <div class="bar" style="height: 60%"></div>
+          <div class="bar" style="height: 52%"></div>
+          <div class="bar" style="height: 75%"></div>
+          <div class="bar" style="height: 90%"></div>
+          <div class="bar" style="height: 68%"></div>
+          <div class="bar" style="height: 82%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Recent Orders
+===================================== -->
+
+<section>
+  <div class="container">
+    <div class="card reveal">
+      <div class="section-header">
+        <h2>Recent Orders</h2>
+      </div>
+
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Status</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>#CC1001</td>
+            <td>Aarav Sharma</td>
+            <td>MacBook Air M3</td>
+            <td>Delivered</td>
+            <td>₹94,999</td>
+          </tr>
+
+          <tr>
+            <td>#CC1002</td>
+            <td>Priya Nair</td>
+            <td>iPhone 16 Pro</td>
+            <td>Shipped</td>
+            <td>₹89,999</td>
+          </tr>
+
+          <tr>
+            <td>#CC1003</td>
+            <td>James Wilson</td>
+            <td>Sony WH-1000XM6</td>
+            <td>Processing</td>
+            <td>₹29,999</td>
+          </tr>
+
+          <tr>
+            <td>#CC1004</td>
+            <td>Haruto Sato</td>
+            <td>Galaxy Watch Ultra</td>
+            <td>Delivered</td>
+            <td>₹52,999</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

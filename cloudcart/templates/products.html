@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block title %}Products | CloudCart{% endblock %} {%
+block content %}
+
+<!-- =====================================
+Products Hero
+===================================== -->
+
+<section class="products-hero">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="hero-badge"> Premium Collection </span>
+
+      <h1>
+        Explore Our
+        <span class="text-gradient">Products</span>
+      </h1>
+
+      <p>
+        Discover carefully selected premium electronics from the world's leading
+        brands with competitive pricing and exceptional quality.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Search & Filter
+===================================== -->
+
+<section class="products-toolbar">
+  <div class="container">
+    <div class="toolbar reveal">
+      <input type="text" id="product-search" placeholder="Search products..." />
+
+      <select id="category-filter">
+        <option value="all">All Categories</option>
+        <option value="Laptops">Laptops</option>
+        <option value="Smartphones">Smartphones</option>
+        <option value="Accessories">Accessories</option>
+        <option value="Smartwatches">Smartwatches</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Products Grid
+===================================== -->
+
+<section>
+  <div class="container">
+    <div class="products-grid">
+      {% for product in products %} {% include "components/product_card.html" %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}
