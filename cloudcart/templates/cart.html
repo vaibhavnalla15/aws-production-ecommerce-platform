@@ -1,5 +1,5 @@
-{% extends "base.html" %} {% block title %}Shopping Cart | CloudCart{% endblock
-%} {% block content %}
+{% extends "base.html" %} {% block title %} Shopping Cart | CloudCart {%
+endblock %} {% block content %}
 
 <!-- =====================================
 Cart Header
@@ -29,88 +29,18 @@ Cart Section
     <div class="cart-layout">
       <!-- Cart Items -->
 
-      <div class="cart-items">
-        <!-- Item 1 -->
-
-        <div class="card cart-item reveal">
-          <img
-            src="{{ url_for('static', filename='images/products/macbook-air-m3.jpg') }}"
-            alt="MacBook Air M3"
-          />
-
-          <div class="cart-item-details">
-            <h3>MacBook Air M3</h3>
-
-            <p>Laptop</p>
-
-            <div class="product-pricing">
-              <div class="current-price">₹94,999</div>
-
-              <div class="usd-price">($1,099)</div>
-
-              <div class="original-price">
-                <del>₹1,04,999</del>
-              </div>
-            </div>
-          </div>
-
-          <div class="quantity-selector">
-            <button class="decrease">−</button>
-
-            <input type="text" class="quantity-input" value="1" readonly />
-
-            <button class="increase">+</button>
-          </div>
-
-          <button class="remove-item btn btn-secondary">Remove</button>
-        </div>
-
-        <!-- Item 2 -->
-
-        <div class="card cart-item reveal">
-          <img
-            src="{{ url_for('static', filename='images/products/sony-wh1000xm6.jpg') }}"
-            alt="Sony WH-1000XM6"
-          />
-
-          <div class="cart-item-details">
-            <h3>Sony WH-1000XM6</h3>
-
-            <p>Accessories</p>
-
-            <div class="product-pricing">
-              <div class="current-price">₹29,999</div>
-
-              <div class="usd-price">($399)</div>
-
-              <div class="original-price">
-                <del>₹34,999</del>
-              </div>
-            </div>
-          </div>
-
-          <div class="quantity-selector">
-            <button class="decrease">−</button>
-
-            <input type="text" class="quantity-input" value="1" readonly />
-
-            <button class="increase">+</button>
-          </div>
-
-          <button class="remove-item btn btn-secondary">Remove</button>
-        </div>
-      </div>
+      <div id="cart-items" class="cart-items"></div>
 
       <!-- Order Summary -->
 
       <aside class="card order-summary reveal">
-        <h2>Order Summary</h2>
+        <h2 id="summary-title">Order Summary</h2>
 
         <div class="divider"></div>
 
         <div class="summary-row">
           <span>Subtotal</span>
-          <span>₹1,24,998</span>
+          <span id="subtotal">₹0</span>
         </div>
 
         <div class="summary-row">
@@ -120,18 +50,31 @@ Cart Section
 
         <div class="summary-row">
           <span>Tax</span>
-          <span>₹4,500</span>
+          <span id="tax">₹0</span>
         </div>
 
         <div class="divider"></div>
 
         <div class="summary-row total">
           <strong>Total</strong>
-
-          <strong>₹1,29,498</strong>
+          <strong id="total">₹0</strong>
         </div>
 
-        <button class="btn btn-primary">Proceed to Checkout</button>
+        <div class="divider"></div>
+
+        <div class="summary-row">
+          <span>Payment Status</span>
+          <span id="payment-status">Pending</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Payment Method</span>
+          <span id="payment-method">Cash on Delivery</span>
+        </div>
+
+        <button id="checkout-btn" class="btn btn-primary">
+          Proceed to Checkout
+        </button>
       </aside>
     </div>
   </div>
