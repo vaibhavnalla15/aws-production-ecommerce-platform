@@ -2,22 +2,26 @@
   <div class="container">
     <div class="footer-grid">
       <!-- Brand -->
+
       <div class="footer-brand">
         <a href="{{ url_for('home') }}" class="footer-logo">
           <img
-            src="{{ url_for('static', filename='images/logo/logo-light.svg') }}"
+            src="{{ url_for('static', filename='images/logo/logo.png') }}"
             alt="CloudCart Logo"
           />
+
           <span>CloudCart</span>
         </a>
 
         <p>
-          Premium electronics for modern lifestyles. Designed with simplicity,
-          performance, and quality in mind.
+          CloudCart is a premium electronics marketplace delivering authentic
+          technology products with fast shipping, secure payments, and a
+          world-class shopping experience.
         </p>
       </div>
 
       <!-- Quick Links -->
+
       <div class="footer-links">
         <h4>Quick Links</h4>
 
@@ -25,36 +29,44 @@
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('products') }}">Products</a></li>
           <li><a href="{{ url_for('cart') }}">Cart</a></li>
-          <li><a href="{{ url_for('admin') }}">Admin</a></li>
+          <li><a href="{{ url_for('admin') }}">Admin Dashboard</a></li>
         </ul>
       </div>
 
       <!-- Categories -->
+
       <div class="footer-links">
         <h4>Categories</h4>
 
         <ul>
           <li><a href="{{ url_for('products') }}">Laptops</a></li>
           <li><a href="{{ url_for('products') }}">Smartphones</a></li>
-          <li><a href="{{ url_for('products') }}">Accessories</a></li>
           <li><a href="{{ url_for('products') }}">Smartwatches</a></li>
+          <li><a href="{{ url_for('products') }}">Accessories</a></li>
         </ul>
       </div>
 
       <!-- Contact -->
+
       <div class="footer-links">
         <h4>Contact</h4>
 
         <ul>
-          <li>support@cloudcart.demo</li>
-          <li>+1 (555) 123-4567</li>
-          <li>Available 24/7</li>
+          <li>support@cloudcart.com</li>
+          <li>+91 99664 40202</li>
+          <ul>
+            <li>Business Hours:</li>
+            <li>Mon – Sat</li>
+            <li>9:00 AM – 7:00 PM</li>
+          </ul>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 CloudCart. All rights reserved.</p>
+      <p>© 2026 CloudCart. All rights reserved.</p>
+
+      <p>Designed & Developed for educational and portfolio purposes.</p>
     </div>
   </div>
 </footer>

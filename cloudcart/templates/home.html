@@ -2,22 +2,23 @@
 endblock %} {% block content %}
 
 <!-- =====================================
-Hero Section
+Hero
 ===================================== -->
 
 <section class="hero">
   <div class="container hero-container">
     <div class="hero-content reveal">
-      <span class="hero-badge"> Premium Electronics Store </span>
+      <span class="hero-badge"> 🇮🇳 India's Premium Electronics Store </span>
 
       <h1>
-        Experience Technology
-        <span class="text-gradient">Without Compromise</span>
+        Premium Technology
+
+        <span class="text-gradient"> For Modern Living </span>
       </h1>
 
       <p>
-        Discover premium laptops, smartphones, accessories, and smartwatches
-        from the world's most trusted brands.
+        CloudCart brings together premium electronics from the world's leading
+        brands with fast delivery across India and international shipping.
       </p>
 
       <div class="hero-buttons">
@@ -33,9 +34,28 @@ Hero Section
 
     <div class="hero-image reveal">
       <img
-        src="{{ url_for('static', filename='images/hero/hero-banner.jpg') }}"
-        alt="CloudCart Hero Banner"
+        src="{{ url_for('static', filename='images/hero/hero-banner.png') }}"
+        alt="CloudCart Hero"
       />
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Trust Banner
+===================================== -->
+
+<section>
+  <div class="container">
+    <div class="statistics-grid">
+      {% set statistic={"value":"🇮🇳","title":"Proudly Built in India"} %} {%
+      include "components/statistic_card.html" %} {% set
+      statistic={"value":"🚚","title":"Free Delivery Across India"} %} {%
+      include "components/statistic_card.html" %} {% set
+      statistic={"value":"🔒","title":"100% Secure Shopping"} %} {% include
+      "components/statistic_card.html" %} {% set
+      statistic={"value":"⭐","title":"Premium Support"} %} {% include
+      "components/statistic_card.html" %}
     </div>
   </div>
 </section>
@@ -50,16 +70,17 @@ Featured Products
       <h2>Featured Products</h2>
 
       <p>
-        Carefully selected premium products loved by professionals and
-        technology enthusiasts.
+        Carefully selected products loved by professionals, students and
+        creators.
       </p>
     </div>
 
     <div class="products-grid">
-      {% include "components/product_card.html" %} {% include
-      "components/product_card.html" %} {% include
-      "components/product_card.html" %} {% include
-      "components/product_card.html" %}
+      {% set product = products[0] %} {% include "components/product_card.html"
+      %} {% set product = products[3] %} {% include
+      "components/product_card.html" %} {% set product = products[6] %} {%
+      include "components/product_card.html" %} {% set product = products[9] %}
+      {% include "components/product_card.html" %}
     </div>
   </div>
 </section>
@@ -73,30 +94,48 @@ Categories
     <div class="section-header reveal">
       <h2>Shop by Category</h2>
 
-      <p>
-        Explore our curated collection across every major technology category.
-      </p>
+      <p>Discover premium technology across every major category.</p>
     </div>
 
     <div class="categories-grid">
-      {% include "components/category_card.html" %} {% include
-      "components/category_card.html" %} {% include
-      "components/category_card.html" %} {% include
+      {% set category={ "name":"Laptops", "count":"3 Premium Models",
+      "image":"images/categories/laptops.jpg" } %} {% include
+      "components/category_card.html" %} {% set category={ "name":"Smartphones",
+      "count":"3 Flagship Phones", "image":"images/categories/smartphones.jpg" }
+      %} {% include "components/category_card.html" %} {% set category={
+      "name":"Accessories", "count":"3 Best Sellers",
+      "image":"images/categories/accessories.jpg" } %} {% include
+      "components/category_card.html" %} {% set category={
+      "name":"Smartwatches", "count":"3 Premium Watches",
+      "image":"images/categories/smartwatches.jpg" } %} {% include
       "components/category_card.html" %}
     </div>
   </div>
 </section>
 
 <!-- =====================================
-Statistics
+Why Choose CloudCart
 ===================================== -->
 
 <section>
   <div class="container">
+    <div class="section-header reveal">
+      <h2>Why Choose CloudCart?</h2>
+
+      <p>
+        Built around trust, premium quality, and an exceptional customer
+        experience.
+      </p>
+    </div>
+
     <div class="statistics-grid">
-      {% include "components/statistic_card.html" %} {% include
-      "components/statistic_card.html" %} {% include
-      "components/statistic_card.html" %} {% include
+      {% set statistic={"value":"100%","title":"Genuine Products"} %} {% include
+      "components/statistic_card.html" %} {% set
+      statistic={"value":"24/7","title":"Customer Support"} %} {% include
+      "components/statistic_card.html" %} {% set
+      statistic={"value":"99.2%","title":"Positive Reviews"} %} {% include
+      "components/statistic_card.html" %} {% set
+      statistic={"value":"50K+","title":"Happy Customers"} %} {% include
       "components/statistic_card.html" %}
     </div>
   </div>
@@ -109,15 +148,52 @@ Customer Reviews
 <section>
   <div class="container">
     <div class="section-header reveal">
-      <h2>What Customers Say</h2>
+      <h2>Customer Reviews</h2>
 
-      <p>Trusted by thousands of customers around the world.</p>
+      <p>
+        Trusted by thousands of technology enthusiasts across India and around
+        the world.
+      </p>
     </div>
 
     <div class="reviews-grid">
-      {% include "components/review_card.html" %} {% include
-      "components/review_card.html" %} {% include "components/review_card.html"
-      %}
+      {% set review={ "avatar":"images/avatars/Aarav Sharma.png", "name":"Aarav
+      Sharma", "designation":"Software Engineer • Bengaluru, India",
+      "product":"MacBook Air M3", "rating":"5.0", "message":"Outstanding
+      quality, fast delivery, and premium packaging. CloudCart has become my
+      first choice for electronics." } %} {% include
+      "components/review_card.html" %} {% set review={
+      "avatar":"images/avatars/Priya Nair.png", "name":"Priya Nair",
+      "designation":"UI/UX Designer • Kochi, India", "product":"iPhone 16 Pro",
+      "rating":"5.0", "message":"The website feels premium, checkout was smooth,
+      and my order arrived earlier than expected." } %} {% include
+      "components/review_card.html" %} {% set review={
+      "avatar":"images/avatars/Rohan Deshmukh.png", "name":"Rohan Deshmukh",
+      "designation":"Cloud Engineer • Pune, India", "product":"Sony WH-1000XM6",
+      "rating":"4.9", "message":"Authentic products, competitive prices, and
+      excellent customer support. Highly recommended." } %} {% include
+      "components/review_card.html" %} {% set review={
+      "avatar":"images/avatars/Sneha Iyer.png", "name":"Sneha Iyer",
+      "designation":"Data Analyst • Chennai, India", "product":"Apple Watch
+      Series 11", "rating":"5.0", "message":"The overall shopping experience was
+      fantastic. Premium service from start to finish." } %} {% include
+      "components/review_card.html" %} {% set review={
+      "avatar":"images/avatars/Emily Carter.png", "name":"Emily Carter",
+      "designation":"Product Manager • New York, USA", "product":"Samsung Galaxy
+      S25 Ultra", "rating":"5.0", "message":"One of the cleanest and most modern
+      electronics stores I've used. Everything felt polished." } %} {% include
+      "components/review_card.html" %} {% set review={
+      "avatar":"images/avatars/James Wilson.png", "name":"James Wilson",
+      "designation":"Professional Boxer • London, UK", "product":"Garmin
+      Forerunner 970", "rating":"4.9", "message":"Excellent product quality and
+      quick international shipping. CloudCart feels like a premium global
+      brand." } %} {% include "components/review_card.html" %}
+    </div>
+
+    <div class="reviews-action">
+      <a href="{{ url_for('reviews') }}" class="btn btn-outline">
+        View All Customer Reviews →
+      </a>
     </div>
   </div>
 </section>

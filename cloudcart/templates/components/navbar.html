@@ -3,10 +3,9 @@
     <!-- Logo -->
     <a href="{{ url_for('home') }}" class="logo">
       <img
-        src="{{ url_for('static', filename='images/logo/logo.svg') }}"
+        src="{{ url_for('static', filename='images/logo/logo.png') }}"
         alt="CloudCart Logo"
       />
-      <span>CloudCart</span>
     </a>
 
     <!-- Navigation Links -->
@@ -22,7 +21,7 @@
       <li>
         <a href="{{ url_for('cart') }}" class="nav-link">
           Cart
-          <span class="cart-count">0</span>
+          <span id="cart-count" class="cart-count">0</span>
         </a>
       </li>
 
@@ -34,7 +33,7 @@
     <!-- Mobile Menu Button -->
     <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
       <img
-        src="{{ url_for('static', filename='images/icons/menu.svg') }}"
+        src="{{ url_for('static', filename='images/icons/menu.png') }}"
         alt="Menu"
       />
     </button>

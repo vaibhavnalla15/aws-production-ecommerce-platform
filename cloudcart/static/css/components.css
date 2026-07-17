@@ -5,293 +5,171 @@ CloudCart Components
 */
 
 /* =====================================
-   Navbar
+Card
 ===================================== */
 
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  background: rgba(11, 17, 32, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-
-  border-bottom: 1px solid var(--color-border);
-}
-
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  height: 80px;
-}
-
-/* =====================================
-   Logo
-===================================== */
-
-.logo,
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: var(--fw-bold);
-  color: var(--color-text);
-}
-
-.logo img,
-.footer-logo img {
-  width: 42px;
-  height: 42px;
-}
-
-/* =====================================
-   Navigation
-===================================== */
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.nav-link {
+.card {
   position: relative;
 
-  color: var(--color-text-muted);
-  font-weight: var(--fw-medium);
+  background: linear-gradient(
+    180deg,
+    rgba(32, 40, 61, 0.95),
+    rgba(22, 28, 43, 0.95)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  border-radius: var(--radius-xl);
+
+  overflow: hidden;
 
   transition: var(--transition-normal);
 }
 
-.nav-link:hover {
-  color: var(--color-text);
-}
+.card:hover {
+  transform: translateY(-10px);
 
-.nav-link::after {
-  content: "";
+  border-color: rgba(99, 102, 241, 0.45);
 
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-
-  width: 0;
-  height: 2px;
-
-  background: var(--color-primary);
-
-  transition: var(--transition-normal);
-}
-
-.nav-link:hover::after {
-  width: 100%;
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(59, 130, 246, 0.15);
 }
 
 /* =====================================
-   Cart Badge
-===================================== */
-
-.cart-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 20px;
-  height: 20px;
-
-  margin-left: 0.35rem;
-
-  border-radius: 50%;
-
-  background: var(--color-primary);
-  color: var(--color-white);
-
-  font-size: 0.75rem;
-  font-weight: var(--fw-bold);
-}
-
-/* =====================================
-   Mobile Menu Button
-===================================== */
-
-.menu-toggle {
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu-toggle img {
-  width: 26px;
-}
-
-/* =====================================
-   Footer
-===================================== */
-
-.footer {
-  margin-top: var(--section-spacing);
-
-  background: var(--color-surface);
-
-  border-top: 1px solid var(--color-border);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 3rem;
-
-  padding: 4rem 0;
-}
-
-.footer-brand p {
-  margin-top: 1.25rem;
-  max-width: 320px;
-}
-
-.footer-links h4 {
-  margin-bottom: 1.2rem;
-
-  color: var(--color-text);
-}
-
-.footer-links ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.footer-links a,
-.footer-links li {
-  color: var(--color-text-muted);
-
-  transition: var(--transition-normal);
-}
-
-.footer-links a:hover {
-  color: var(--color-primary);
-}
-
-.footer-bottom {
-  padding: 1.5rem 0;
-
-  border-top: 1px solid var(--color-border);
-
-  text-align: center;
-}
-
-/* =====================================
-   Product Card
+Product Card
 ===================================== */
 
 .product-card {
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .product-image {
+  height: 260px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
   overflow: hidden;
 }
 
 .product-image img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-
-  transition: var(--transition-slow);
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.35s ease;
 }
 
 .product-card:hover .product-image img {
-  transform: scale(1.08);
+  transform: scale(1.04);
 }
 
 .product-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 1.5rem;
 }
 
 .product-category {
+  font-size: 0.85rem;
   color: var(--color-primary);
-
-  font-size: var(--fs-sm);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .product-title {
-  margin-bottom: 0.75rem;
+  font-size: 2rem;
+  line-height: 1.3;
+  min-height: 84px;
+  margin: 0 0 1rem;
 }
 
-.product-price {
-  margin-top: 1rem;
+.product-rating {
+  min-height: 28px;
+  margin-bottom: 1rem;
+}
 
-  color: var(--color-primary);
+.product-pricing {
+  margin-bottom: 1rem;
+}
 
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-bold);
+.current-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.usd-price,
+.original-price {
+  margin-top: 0.35rem;
+}
+
+.discount {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.product-content .btn,
+.product-content .btn-primary {
+  margin-top: auto;
+  width: fit-content;
 }
 
 /* =====================================
-   Dashboard Cards
+Badge
 ===================================== */
 
-.dashboard-card {
-  padding: 2rem;
+.product-badge {
+  position: absolute;
 
-  text-align: center;
-}
+  top: 18px;
+  left: 18px;
 
-.dashboard-card h3 {
-  margin-bottom: 0.75rem;
-}
+  z-index: 10;
 
-.dashboard-card .value {
-  font-size: 2.2rem;
-  font-weight: var(--fw-bold);
+  padding: 0.45rem 0.9rem;
 
-  color: var(--color-primary);
-}
+  border-radius: 999px;
 
-/* =====================================
-   Statistics Cards
-===================================== */
+  background: var(--gradient-primary);
 
-.statistic-card {
-  padding: 2rem;
+  color: #ffffff;
 
-  text-align: center;
-}
+  font-size: 0.78rem;
 
-.statistic-card h3 {
-  margin-bottom: 0.5rem;
+  font-weight: 600;
 
-  font-size: 2.4rem;
-
-  color: var(--color-primary);
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.35);
 }
 
 /* =====================================
-   Category Cards
+Category Card
 ===================================== */
 
 .category-card {
   position: relative;
 
-  overflow: hidden;
+  height: 320px;
 
-  border-radius: var(--radius-xl);
+  overflow: hidden;
 }
 
 .category-card img {
   width: 100%;
-  height: 280px;
+  height: 100%;
 
   object-fit: cover;
 
-  transition: var(--transition-slow);
+  transition: 0.45s;
 }
 
 .category-card:hover img {
@@ -300,75 +178,165 @@ CloudCart Components
 
 .category-overlay {
   position: absolute;
+
   inset: 0;
 
   display: flex;
+
   align-items: flex-end;
 
   padding: 2rem;
 
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.15));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+}
+
+.category-overlay h3 {
+  margin-bottom: 0.35rem;
+}
+
+.category-overlay p {
+  color: #d1d5db;
 }
 
 /* =====================================
-   Review Cards
+Statistic Card
+===================================== */
+
+.statistic-card {
+  padding: 2.2rem;
+
+  text-align: center;
+}
+
+.statistic-card h3 {
+  font-size: 2.5rem;
+
+  color: var(--color-primary);
+
+  margin-bottom: 0.75rem;
+}
+
+.statistic-card p {
+  color: var(--color-text-muted);
+}
+
+/* =====================================
+Review Card
 ===================================== */
 
 .review-card {
   padding: 2rem;
 }
 
-.review-card img {
-  width: 70px;
-  height: 70px;
-
-  border-radius: 50%;
-
-  margin-bottom: 1rem;
-}
-
-.review-card h4 {
-  margin-top: 1.2rem;
-}
-
-/* =====================================
-   Newsletter
-===================================== */
-
-.newsletter {
-  padding: 4rem;
-
-  border-radius: var(--radius-xl);
-
-  background: var(--gradient-primary);
-
-  text-align: center;
-}
-
-.newsletter h2,
-.newsletter p {
-  color: var(--color-white);
-}
-
-.newsletter-form {
+.review-header {
   display: flex;
-  justify-content: center;
+
+  align-items: center;
 
   gap: 1rem;
 
-  margin-top: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-.newsletter-form input {
-  width: 320px;
+.review-header img {
+  width: 72px;
+  height: 72px;
 
-  padding: 1rem 1.25rem;
+  border-radius: 50%;
 
-  border-radius: var(--radius-round);
+  object-fit: cover;
 
-  background: var(--color-white);
+  border: 3px solid rgba(99, 102, 241, 0.35);
 }
 
-.newsletter-form button {
-  white-space: nowrap;
+.review-location {
+  color: var(--color-text-muted);
+
+  font-size: 0.9rem;
+}
+
+.review-product {
+  margin: 1rem 0;
+
+  color: var(--color-text-muted);
+}
+
+.review-message {
+  line-height: 1.8;
+
+  color: #d6d9e0;
+
+  font-style: italic;
+}
+
+/* =====================================
+Dashboard Card
+===================================== */
+
+.dashboard-card {
+  padding: 2rem;
+}
+
+.dashboard-icon {
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: rgba(59, 130, 246, 0.12);
+
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-icon img {
+  width: 34px;
+}
+
+.dashboard-value {
+  margin: 0.5rem 0;
+
+  font-size: 2rem;
+
+  color: #ffffff;
+}
+
+.dashboard-description {
+  color: var(--color-text-muted);
+}
+
+/* =====================================
+   Empty Cart
+===================================== */
+
+.empty-cart-card {
+  width: 100%;
+  min-height: 420px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 3rem;
+}
+
+.empty-cart-card img {
+  width: 160px;
+  margin-bottom: 1.5rem;
+}
+
+.empty-cart-card h2 {
+  margin-bottom: 0.75rem;
+}
+
+.empty-cart-card p {
+  color: var(--text-secondary);
 }
