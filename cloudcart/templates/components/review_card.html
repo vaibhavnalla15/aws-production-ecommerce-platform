@@ -1,18 +1,38 @@
 <div class="card review-card reveal">
-  <img
-    src="{{ url_for('static', filename=(review.avatar if review else 'images/avatars/customer-1.jpg')) }}"
-    alt="{{ review.name if review else 'Customer' }}"
-  />
+  <!-- Customer -->
 
-  <div class="product-rating">⭐⭐⭐⭐⭐</div>
+  <div class="review-header">
+    <img
+      src="{{ url_for('static', filename=review.avatar) }}"
+      alt="{{ review.name }}"
+    />
 
-  <p>
-    "{{ review.message if review else 'CloudCart exceeded my expectations. The
-    shopping experience feels premium, the products are top quality, and
-    delivery was incredibly fast. Highly recommended!' }}"
+    <div>
+      <h4>{{ review.name }}</h4>
+
+      <p class="review-location">📍 {{ review.designation }}</p>
+    </div>
+  </div>
+
+  <!-- Rating -->
+
+  <div class="product-rating">
+    ⭐⭐⭐⭐⭐
+
+    <span> {{ review.rating if review.rating else "5.0" }} </span>
+  </div>
+
+  <!-- Purchased Product -->
+
+  <p class="review-product">
+    Purchased:
+
+    <strong>
+      {{ review.product if review.product else "MacBook Air M3" }}
+    </strong>
   </p>
 
-  <h4>{{ review.name if review else "Alex Johnson" }}</h4>
+  <!-- Review -->
 
-  <span> {{ review.designation if review else "Verified Customer" }} </span>
+  <p class="review-message">"{{ review.message }}"</p>
 </div>

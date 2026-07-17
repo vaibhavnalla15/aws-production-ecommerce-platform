@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}
+Customer Reviews | CloudCart
+{% endblock %}
+
+{% block content %}
+
+<!-- =====================================
+Reviews Header
+===================================== -->
+
+<section class="products-hero">
+
+  <div class="container">
+
+    <div class="section-header reveal">
+
+      <span class="hero-badge">
+        Verified Customer Reviews
+      </span>
+
+      <h1>
+        What Our
+        <span class="text-gradient">Customers Say</span>
+      </h1>
+
+      <p>
+        Discover why thousands of customers trust CloudCart for premium
+        electronics, fast delivery, secure shopping, and exceptional service.
+      </p>
+
+      <div style="margin-top:2rem;">
+
+        <h2 style="font-size:2rem;">
+          ⭐⭐⭐⭐⭐ 4.9 / 5
+        </h2>
+
+        <p>
+          Based on 10 verified customer reviews.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================
+Customer Reviews
+===================================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="reviews-grid">
+
+      {% set review={
+        "avatar":"images/avatars/Aarav Sharma.png",
+        "name":"Aarav Sharma",
+        "designation":"Software Engineer • Bengaluru, India",
+        "product":"MacBook Air M3",
+        "rating":"5.0",
+        "message":"Outstanding quality, fast delivery, and premium packaging. CloudCart has become my first choice for electronics."
+      } %}
+      {% include "components/review_card.html" %}
+
+      {% set review={
+        "avatar":"images/avatars/Priya Nair.png",
+        "name":"Priya Nair",
+        "designation":"UI/UX Designer • Kochi, India",
+        "product":"iPhone 16 Pro",
+        "rating":"5.0",
+        "message":"The website feels premium, checkout was smooth, and my order arrived earlier than expected."
+      } %}
+      {% include "components/review_card.html" %}
+
+      {% set review={
+        "avatar":"images/avatars/Ananya Gupta.png",
+        "name":"Ananya Gupta",
+        "designation":"Model • New Delhi, India",
+        "product":"Apple Watch Series 11",
+        "rating":"4.9",
+        "message":"Beautiful website, genuine products, and premium customer support. Shopping here was a wonderful experience."
+      } %}
+      {% include "components/review_card.html" %}
+
+      {% set review={
+        "avatar":"images/avatars/Rohan Deshmukh.png",
+        "name":"Rohan Deshmukh",
+        "designation":"Sports Person • Mumbai, India",
+        "product":"Samsung Galaxy S25 Ultra",
+        "rating":"5.0",
+        "message":"The smartphone arrived perfectly packed and earlier than expected. Fantastic experience from start to finish."
+      } %}
+      {% include "components/review_card.html" %}
+
+      {% set review={
+        "avatar":"images/avatars/Sneha Iyer.png",
+        "name":"Sneha Iyer",
+        "designation":"Teacher • Chennai, India",
+        "product":"Apple Watch Series 11",
+        "rating":"5.0",
+        "message":"Excellent service and authentic products. CloudCart delivers exactly what it promises."
+      } %}
+      {% include "components/review_card.html" %}
+
+      {% set review={
+        "avatar":"images/avatars/Emily Carter.png",
+        "name":"Emily Carter",
+        "designation":"Singer • New York, USA",
+        "product":"Samsung Galaxy S25 Ultra",
+        "rating":"5.0",
+        "message":"One of the cleanest and most modern electronics stores I've ever used. Everything from browsing to delivery felt premium."
+      } %}
+      {% include "components/review_card.html" %}
+
+      {% set review={
+        "avatar":"images/avatars/James Wilson.png",
+        "name":"James Wilson",
+        "designation":"Professional Boxer • London, UK",
+        "product":"Garmin Forerunner 970",
+        "rating":"4.9",
+        "message":"Excellent product quality and quick international shipping. CloudCart feels like a premium global technology brand."
+      } %}
+      {% include "components/review_card.html" %}
+
+      {% set review={
+        "avatar":"images/avatars/Sakura Araki.png",
+        "name":"Sakura Araki",
+        "designation":"Model • Tokyo, Japan",
+        "product":"Sony WH-1000XM6",
+        "rating":"5.0",
+        "message":"Premium packaging, authentic products, and a beautiful shopping experience. I would definitely recommend CloudCart."
+      } %}
+      {% include "components/review_card.html" %}
+
+      {% set review={
+        "avatar":"images/avatars/Luke Cage.png",
+        "name":"Luke Cage",
+        "designation":"NBA Player • Colombia",
+        "product":"Lenovo ThinkPad X1 Carbon",
+        "rating":"4.9",
+        "message":"Fast international delivery and excellent build quality. The ordering process was smooth from beginning to end."
+      } %}
+      {% include "components/review_card.html" %}
+
+      {% set review={
+        "avatar":"images/avatars/Arpit Goyal.png",
+        "name":"Arpit Goyal",
+        "designation":"Technology Entrepreneur • Hyderabad, India",
+        "product":"Logitech MX Master 3S",
+        "rating":"5.0",
+        "message":"CloudCart exceeded my expectations. Genuine products, competitive pricing, and an overall premium customer experience."
+      } %}
+      {% include "components/review_card.html" %}
+
+    </div>
+
+    <div
+      style="
+        text-align:center;
+        margin-top:4rem;
+      ">
+
+      <a
+        href="{{ url_for('products') }}"
+        class="btn btn-primary">
+
+        Continue Shopping
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}
