@@ -31,15 +31,19 @@ Dashboard Cards
   <div class="container">
     <div class="dashboard-grid">
       {% set dashboard = { "title": "Total Products", "value": "12",
-      "description": "Active Products", "icon": "images/icons/shopping-bag.svg"
+      "description": "Active Products", "icon": "images/icons/shopping-bag.png"
       } %} {% include "components/dashboard_card.html" %} {% set dashboard = {
       "title": "Orders", "value": "1,284", "description": "Total Orders",
-      "icon": "images/icons/cart.svg" } %} {% include
+      "icon": "images/icons/cart.png" } %} {% include
       "components/dashboard_card.html" %} {% set dashboard = { "title":
       "Revenue", "value": "₹18.6L", "description": "Monthly Revenue", "icon":
-      "images/icons/shield.svg" } %} {% include "components/dashboard_card.html"
-      %} {% set dashboard = { "title": "Inventory", "value": "1,542",
-      "description": "Items in Stock", "icon": "images/icons/truck.svg" } %} {%
+      "images/icons/shield.png" } %} {% include "components/dashboard_card.html"
+      %} {% set dashboard = {
+        "title": "Customers",
+        "value": "846",
+        "description": "Registered Customers",
+        "icon": "images/icons/user.png"
+        } %} {%
       include "components/dashboard_card.html" %}
     </div>
   </div>
@@ -53,20 +57,53 @@ Sales Overview
   <div class="container">
     <div class="card reveal">
       <div class="section-header">
-        <h2>Sales Overview</h2>
+        <h2>Sales Analytics</h2>
 
-        <p>Monthly sales performance (Demo Chart)</p>
+        <p>Revenue performance across the last seven months.</p>
       </div>
 
       <div class="chart-placeholder">
         <div class="chart-bars">
-          <div class="bar" style="height: 40%"></div>
-          <div class="bar" style="height: 60%"></div>
-          <div class="bar" style="height: 52%"></div>
-          <div class="bar" style="height: 75%"></div>
-          <div class="bar" style="height: 90%"></div>
-          <div class="bar" style="height: 68%"></div>
-          <div class="bar" style="height: 82%"></div>
+          <div class="chart-column">
+            <strong>₹2.8L</strong>
+            <div class="bar" style="height:45%"></div>
+            <span>Jan</span>
+        </div>
+        
+        <div class="chart-column">
+            <strong>₹3.4L</strong>
+            <div class="bar" style="height:58%"></div>
+            <span>Feb</span>
+        </div>
+        
+        <div class="chart-column">
+            <strong>₹4.1L</strong>
+            <div class="bar" style="height:63%"></div>
+            <span>Mar</span>
+        </div>
+        
+        <div class="chart-column">
+            <strong>₹5.0L</strong>
+            <div class="bar" style="height:74%"></div>
+            <span>Apr</span>
+        </div>
+        
+        <div class="chart-column">
+            <strong>₹6.8L</strong>
+            <div class="bar" style="height:92%"></div>
+            <span>May</span>
+        </div>
+        
+        <div class="chart-column">
+            <strong>₹6.0L</strong>
+            <div class="bar" style="height:80%"></div>
+            <span>Jun</span>
+        </div>
+        
+        <div class="chart-column">
+            <strong>₹7.5L</strong>
+            <div class="bar" style="height:96%"></div>
+            <span>Jul</span>
         </div>
       </div>
     </div>
@@ -80,11 +117,13 @@ Recent Orders
 <section>
   <div class="container">
     <div class="card reveal">
+
       <div class="section-header">
         <h2>Recent Orders</h2>
       </div>
 
       <table class="orders-table">
+
         <thead>
           <tr>
             <th>Order ID</th>
@@ -96,11 +135,16 @@ Recent Orders
         </thead>
 
         <tbody>
+
           <tr>
             <td>#CC1001</td>
             <td>Aarav Sharma</td>
             <td>MacBook Air M3</td>
-            <td>Delivered</td>
+            <td>
+              <span class="status-badge delivered">
+                Delivered
+              </span>
+            </td>
             <td>₹94,999</td>
           </tr>
 
@@ -108,7 +152,11 @@ Recent Orders
             <td>#CC1002</td>
             <td>Priya Nair</td>
             <td>iPhone 16 Pro</td>
-            <td>Shipped</td>
+            <td>
+              <span class="status-badge shipped">
+                Shipped
+              </span>
+            </td>
             <td>₹89,999</td>
           </tr>
 
@@ -116,7 +164,11 @@ Recent Orders
             <td>#CC1003</td>
             <td>James Wilson</td>
             <td>Sony WH-1000XM6</td>
-            <td>Processing</td>
+            <td>
+              <span class="status-badge processing">
+                Processing
+              </span>
+            </td>
             <td>₹29,999</td>
           </tr>
 
@@ -124,11 +176,18 @@ Recent Orders
             <td>#CC1004</td>
             <td>Haruto Sato</td>
             <td>Galaxy Watch Ultra</td>
-            <td>Delivered</td>
+            <td>
+              <span class="status-badge delivered">
+                Delivered
+              </span>
+            </td>
             <td>₹52,999</td>
           </tr>
+
         </tbody>
+
       </table>
+
     </div>
   </div>
 </section>
