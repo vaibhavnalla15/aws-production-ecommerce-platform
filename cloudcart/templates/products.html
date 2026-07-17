@@ -8,16 +8,17 @@ Products Hero
 <section class="products-hero">
   <div class="container">
     <div class="section-header reveal">
-      <span class="hero-badge"> Premium Collection </span>
+      <span class="hero-badge"> 🇮🇳 Premium Electronics Collection </span>
 
       <h1>
         Explore Our
-        <span class="text-gradient">Products</span>
+
+        <span class="text-gradient"> Product Catalog </span>
       </h1>
 
       <p>
-        Discover carefully selected premium electronics from the world's leading
-        brands with competitive pricing and exceptional quality.
+        Premium electronics from globally trusted brands, carefully curated for
+        professionals, creators, students, and technology enthusiasts.
       </p>
     </div>
   </div>
@@ -30,13 +31,17 @@ Search & Filter
 <section class="products-toolbar">
   <div class="container">
     <div class="toolbar reveal">
-      <input type="text" id="product-search" placeholder="Search products..." />
+      <input id="product-search" type="text" placeholder="Search products..." />
 
       <select id="category-filter">
         <option value="all">All Categories</option>
+
         <option value="Laptops">Laptops</option>
+
         <option value="Smartphones">Smartphones</option>
+
         <option value="Accessories">Accessories</option>
+
         <option value="Smartwatches">Smartwatches</option>
       </select>
     </div>
@@ -44,7 +49,7 @@ Search & Filter
 </section>
 
 <!-- =====================================
-Products Grid
+Products
 ===================================== -->
 
 <section>
@@ -54,6 +59,33 @@ Products Grid
       {% endfor %}
     </div>
   </div>
+</section>
+
+<!-- =====================================
+Store Features
+===================================== -->
+
+<section>
+  <div class="container">
+    <div class="statistics-grid">
+      {% set statistic = { "value":"12", "title":"Premium Products" } %} {%
+      include "components/statistic_card.html" %} {% set statistic = {
+      "value":"50K+", "title":"Happy Customers" } %} {% include
+      "components/statistic_card.html" %} {% set statistic = { "value":"99.2%",
+      "title":"Positive Reviews" } %} {% include
+      "components/statistic_card.html" %} {% set statistic = { "value":"24/7",
+      "title":"Customer Support" } %} {% include
+      "components/statistic_card.html" %}
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+Newsletter
+===================================== -->
+
+<section>
+  <div class="container">{% include "components/newsletter.html" %}</div>
 </section>
 
 {% endblock %}

@@ -1,55 +1,60 @@
 <div
   class="card product-card reveal"
-  data-name="{{ product.name if product else 'MacBook Air M3' }}"
-  data-category="{{ product.category if product else 'Laptops' }}"
+  data-name="{{ product.name }}"
+  data-category="{{ product.category }}"
 >
+  <!-- Product Badge -->
+
+  <div class="product-badge">{{ product.badge }}</div>
+
   <!-- Product Image -->
+
   <div class="product-image">
-    <a
-      href="{{ url_for('product', product_id=(product.id if product else 1)) }}"
-    >
+    <a href="{{ url_for('product', product_id=product.id) }}">
       <img
-        src="{{ url_for('static', filename=(product.image if product else 'images/products/macbook-air-m3.jpg')) }}"
-        alt="{{ product.name if product else 'MacBook Air M3' }}"
+        src="{{ url_for('static', filename=product.image) }}"
+        alt="{{ product.name }}"
       />
     </a>
   </div>
 
-  <!-- Product Content -->
+  <!-- Product Details -->
+
   <div class="product-content">
-    <p class="product-category">
-      {{ product.category if product else "Laptops" }}
+    <p class="product-category">{{ product.category }}</p>
+
+    <h3 class="product-title">{{ product.name }}</h3>
+
+    <p class="product-brand">
+      {{ product.brand }} {{ product.brandCountry }}
     </p>
 
-    <h3 class="product-title">
-      {{ product.name if product else "MacBook Air M3" }}
-    </h3>
+    <!-- Rating -->
 
     <div class="product-rating">
       ⭐⭐⭐⭐⭐
 
-      <span> {{ product.rating if product else "4.9" }} </span>
+      <span> {{ product.rating }} ({{ product.reviews }}) </span>
     </div>
+
+    <!-- Pricing -->
 
     <div class="product-pricing">
-      <div class="current-price">
-        ₹{{ "{:,}".format(product.price_inr) if product else "94,999" }}
-      </div>
+      <div class="current-price">₹{{ "{:,}".format(product.price_inr) }}</div>
 
-      <div class="usd-price">
-        (${{ product.price_usd if product else "1,099" }})
-      </div>
+      <div class="usd-price">${{ product.price_usd }}</div>
 
       <div class="original-price">
-        <del>
-          ₹{{ "{:,}".format(product.original_price_inr) if product else
-          "1,04,999" }}
-        </del>
+        <del> ₹{{ "{:,}".format(product.original_price_inr) }} </del>
       </div>
+
+      <div class="discount">Save {{ product.discount }}%</div>
     </div>
 
+    <!-- CTA -->
+
     <a
-      href="{{ url_for('product', product_id=(product.id if product else 1)) }}"
+      href="{{ url_for('product', product_id=product.id) }}"
       class="btn btn-primary"
     >
       View Details

@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block title %}Product Details | CloudCart{%
+{% extends "base.html" %} {% block title %}{{ product.name }} | CloudCart{%
 endblock %} {% block content %}
 
 <!-- =====================================
@@ -8,77 +8,68 @@ Product Details
 <section class="product-details">
   <div class="container">
     <div class="product-details-grid">
-      <!-- Product Images -->
+      <!-- Product Image -->
+
       <div class="product-gallery reveal">
         <div class="main-image">
           <img
-            src="{{ url_for('static', filename='images/products/macbook-air-m3.jpg') }}"
-            alt="Product Image"
-          />
-        </div>
-
-        <div class="thumbnail-gallery">
-          <img
-            src="{{ url_for('static', filename='images/products/macbook-air-m3.jpg') }}"
-            alt="Thumbnail"
-          />
-
-          <img
-            src="{{ url_for('static', filename='images/products/macbook-air-m3.jpg') }}"
-            alt="Thumbnail"
-          />
-
-          <img
-            src="{{ url_for('static', filename='images/products/macbook-air-m3.jpg') }}"
-            alt="Thumbnail"
-          />
-
-          <img
-            src="{{ url_for('static', filename='images/products/macbook-air-m3.jpg') }}"
-            alt="Thumbnail"
+            src="{{ url_for('static', filename=product.image) }}"
+            alt="{{ product.name }}"
           />
         </div>
       </div>
 
       <!-- Product Information -->
-      <div class="product-information reveal">
-        <span class="product-category"> Laptops </span>
 
-        <h1>MacBook Air M3</h1>
+      <div class="product-information reveal">
+        <span class="hero-badge"> {{ product.badge }} </span>
+
+        <p class="product-category">{{ product.category }}</p>
+
+        <h1>{{ product.name }}</h1>
+
+        <p>
+          <strong>{{ product.brand }}</strong>
+          • {{ product.brandCountry }}
+        </p>
 
         <div class="product-rating">
           ⭐⭐⭐⭐⭐
-          <span>4.9 (2,145 Reviews)</span>
+          <span>{{ product.rating }} ({{ product.reviews }} Reviews)</span>
         </div>
 
         <div class="product-pricing">
-          <h2 class="current-price">₹94,999</h2>
+          <div class="current-price">
+            ₹{{ "{:,}".format(product.price_inr) }}
+          </div>
 
-          <p class="usd-price">($1,099)</p>
+          <div class="usd-price">(${{ product.price_usd }})</div>
 
-          <p class="original-price">
-            <del>₹1,04,999</del>
+          <div class="original-price">
+            <del>₹{{ "{:,}".format(product.original_price_inr) }}</del>
 
-            <span class="discount-badge"> Save 10% </span>
-          </p>
+            <span class="discount-badge"> Save {{ product.discount }}% </span>
+          </div>
         </div>
 
-        <p class="product-description">
-          Experience exceptional speed, all-day battery life, and a stunning
-          Liquid Retina display powered by Apple's latest M3 chip.
-        </p>
+        <p class="product-description">{{ product.description }}</p>
 
-        <!-- Specifications -->
+        <!-- =====================================
+        Specifications
+        ===================================== -->
 
         <div class="product-specifications">
           <h3>Specifications</h3>
 
           <ul>
-            <li>Apple M3 Chip</li>
-            <li>16 GB Unified Memory</li>
-            <li>512 GB SSD Storage</li>
-            <li>13.6-inch Liquid Retina Display</li>
-            <li>Up to 18 Hours Battery Life</li>
+            {% for key, value in product.specifications.items() %}
+
+            <li>
+              <strong>{{ key }}</strong>
+              <span>{{ value }}</span>
+            </li>
+
+            {% endfor %}
           </ul>
         </div>
 
@@ -87,13 +78,23 @@ Product Details
         <div class="quantity-selector">
           <button class="decrease">−</button>
 
-          <input type="text" class="quantity-input" value="1" readonly />
+          <input class="quantity-input" type="text" value="1" readonly />
 
           <button class="increase">+</button>
         </div>
 
+        <!-- Actions -->
+
         <div class="product-actions">
-          <button class="btn btn-primary">Add to Cart</button>
+          <button
+            class="btn btn-primary add-to-cart-btn"
+            data-id="{{ product.id }}"
+            data-name="{{ product.name }}"
+            data-price="{{ product.price_inr }}"
+            data-image="{{ url_for('static', filename=product.image) }}"
+          >
+            Add to Cart
+          </button>
 
           <button class="btn btn-secondary">Buy Now</button>
         </div>
@@ -109,16 +110,15 @@ Related Products
 <section>
   <div class="container">
     <div class="section-header reveal">
-      <h2>Related Products</h2>
+      <h2>You May Also Like</h2>
 
-      <p>Customers also viewed these premium products.</p>
+      <p>Explore more premium products from CloudCart.</p>
     </div>
 
     <div class="products-grid">
-      {% include "components/product_card.html" %} {% include
-      "components/product_card.html" %} {% include
-      "components/product_card.html" %} {% include
-      "components/product_card.html" %}
+      {% for related_product in products[:4] %} {% if related_product.id !=
+      product.id %} {% set product = related_product %} {% include
+      "components/product_card.html" %} {% endif %} {% endfor %}
     </div>
   </div>
 </section>
