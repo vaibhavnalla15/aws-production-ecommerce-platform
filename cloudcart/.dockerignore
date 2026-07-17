@@ -4,7 +4,7 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Virtual Environment
+# Virtual Environments
 venv/
 .venv/
 env/
@@ -14,19 +14,21 @@ env/
 
 # Git
 .git/
+.github/
 .gitignore
 
 # IDE
 .vscode/
 .idea/
 
-# macOS
+# macOS / Windows
 .DS_Store
+Thumbs.db
 
 # Logs
 *.log
 
-# Python Cache
+# Python Caches
 .pytest_cache/
 .mypy_cache/
 
