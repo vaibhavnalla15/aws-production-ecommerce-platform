@@ -97,14 +97,14 @@ This repository contains the complete frontend application that can be executed 
 
 # Technology Stack
 
-| Category | Technologies |
-|-----------|--------------|
-| Backend | Python, Flask |
-| Frontend | HTML5, CSS3, Vanilla JavaScript |
-| Templating | Jinja2 |
-| Styling | Custom CSS |
-| Containerization | Docker |
-| Version Control | Git & GitHub |
+| Category         | Technologies                    |
+| ---------------- | ------------------------------- |
+| Backend          | Python, Flask                   |
+| Frontend         | HTML5, CSS3, Vanilla JavaScript |
+| Templating       | Jinja2                          |
+| Styling          | Custom CSS                      |
+| Containerization | Docker                          |
+| Version Control  | Git & GitHub                    |
 
 ---
 
@@ -212,7 +212,7 @@ Responsive layouts are implemented using custom CSS without external UI framewor
 
 ---
 
-# Screenshots
+# Screenshots:-
 
 ## Home Page
 
@@ -252,7 +252,7 @@ Responsive layouts are implemented using custom CSS without external UI framewor
 
 ---
 
-## Products Page:- 
+## Products Page:-
 
 ### Product Catalog
 
@@ -286,7 +286,7 @@ Responsive layouts are implemented using custom CSS without external UI framewor
 
 ---
 
-## Product Details:- 
+## Product Details:-
 
 ### Product Overview
 
@@ -312,7 +312,7 @@ Responsive layouts are implemented using custom CSS without external UI framewor
 
 ---
 
-# Shopping Cart
+# Shopping Cart:-
 
 CloudCart includes a complete client-side shopping cart experience.
 
@@ -352,13 +352,7 @@ CloudCart includes a complete client-side shopping cart experience.
 
 ---
 
-### Checkout
-
-![Checkout](assets/screenshots/cart-page/05-cart-checkout.png)
-
----
-
-# Order Confirmation
+# Order Confirmation:-
 
 After checkout, CloudCart generates a confirmation page and displays an order receipt.
 
@@ -376,7 +370,7 @@ After checkout, CloudCart generates a confirmation page and displays an order re
 
 ---
 
-# Customer Reviews
+# Customer Reviews:-
 
 The application includes a dedicated customer reviews page featuring realistic customer testimonials.
 
@@ -394,7 +388,7 @@ The application includes a dedicated customer reviews page featuring realistic c
 
 ---
 
-# Admin Dashboard
+# Admin Dashboard:-
 
 CloudCart provides a modern administrative dashboard for monitoring business metrics.
 
@@ -438,7 +432,7 @@ CloudCart provides a modern administrative dashboard for monitoring business met
 
 ---
 
-# Getting Started
+# Getting Started:-
 
 ## Prerequisites
 
@@ -513,7 +507,9 @@ CloudCart is fully containerized using Docker.
 ```bash
 docker build -t cloudcart:v1 .
 ```
+
 > Run this at the root folder where dokerfile is present
+
 ---
 
 ## Verify Image
@@ -733,43 +729,43 @@ This allows the shopping experience to persist across page refreshes without req
 
 ---
 
-# Key Components
+# Key Components:-
 
 CloudCart is built using reusable Jinja2 components to promote consistency and simplify maintenance.
 
-| Component | Purpose |
-|-----------|---------|
-| Navbar | Global navigation and shopping cart access |
-| Footer | Common footer displayed across all pages |
-| Product Card | Displays products in catalog and related product sections |
-| Category Card | Displays product categories on the home page |
-| Review Card | Displays customer testimonials |
-| Dashboard Card | Displays administrative dashboard metrics |
-| Statistic Card | Shows KPI and analytics information |
-| Newsletter | Newsletter subscription section |
-| Base Template | Shared layout inherited by all pages |
+| Component      | Purpose                                                   |
+| -------------- | --------------------------------------------------------- |
+| Navbar         | Global navigation and shopping cart access                |
+| Footer         | Common footer displayed across all pages                  |
+| Product Card   | Displays products in catalog and related product sections |
+| Category Card  | Displays product categories on the home page              |
+| Review Card    | Displays customer testimonials                            |
+| Dashboard Card | Displays administrative dashboard metrics                 |
+| Statistic Card | Shows KPI and analytics information                       |
+| Newsletter     | Newsletter subscription section                           |
+| Base Template  | Shared layout inherited by all pages                      |
 
 This component-driven architecture keeps the UI modular and reduces duplicated markup throughout the project.
 
 ---
 
-# Browser Compatibility
+# Browser Compatibility:-
 
 CloudCart is designed to work across all modern desktop and mobile browsers.
 
-| Browser | Supported |
-|----------|-----------|
-| Google Chrome | ✅ |
-| Microsoft Edge | ✅ |
-| Mozilla Firefox | ✅ |
-| Safari | ✅ |
-| Brave | ✅ |
+| Browser         | Supported |
+| --------------- | --------- |
+| Google Chrome   | ✅        |
+| Microsoft Edge  | ✅        |
+| Mozilla Firefox | ✅        |
+| Safari          | ✅        |
+| Brave           | ✅        |
 
 The application uses modern HTML5, CSS3, and JavaScript features supported by current browser versions.
 
 ---
 
-# Performance Optimizations
+# Performance Optimizations:-
 
 Several optimizations have been incorporated to improve responsiveness and maintainability.
 
@@ -807,7 +803,7 @@ Several optimizations have been incorporated to improve responsiveness and maint
 
 ---
 
-# Future Enhancements
+# Future Enhancements:-
 
 Potential improvements for future versions include:
 
@@ -888,7 +884,7 @@ Application
 # Quick Start
 
 ```bash
-git clone https://github.com/<your-github-username>/cloudcart.git
+git clone https://github.com/vaibhavnalla15/aws-production-ecommerce-platform cloudcart
 
 cd cloudcart
 
