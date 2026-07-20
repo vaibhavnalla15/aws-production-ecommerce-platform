@@ -32,3 +32,16 @@ module "security_groups" {
   # Resource configuration
   vpc_id = module.vpc.vpc_id
 }
+
+############################################################
+# IAM Module
+############################################################
+
+# Creates IAM resources for EC2 instances
+module "iam" {
+  source = "./modules/iam"
+
+  # Common configuration
+  common_tags    = local.common_tags
+  resource_names = local.resource_names
+}
