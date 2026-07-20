@@ -84,3 +84,20 @@ module "launch_template" {
   ami_id        = data.aws_ami.amazon_linux_2023.id
   instance_type = var.instance_type
 }
+
+############################################################
+# ALB Module
+############################################################
+
+module "alb" {
+  source = "./modules/alb"
+
+  # Common configuration
+  common_tags    = local.common_tags
+  resource_names = local.resource_names
+
+  # Networking
+  vpc_id                = module.vpc.vpc_id
+  public_subnet_ids     = module.vpc.public_subnet_ids
+  alb_security_group_id = module.security_groups.alb_security_group_id
+}

@@ -79,3 +79,17 @@ output "launch_template_latest_version" {
   description = "Latest Launch Template Version"
   value       = module.launch_template.launch_template_latest_version
 }
+
+############################################################
+# ALB Outputs
+############################################################
+
+output "alb_dns_name" {
+  description = "Application Load Balancer DNS Name"
+  value       = module.alb.alb_dns_name
+}
+
+output "target_group_arn" {
+  description = "Target Group ARN"
+  value       = module.alb.target_group_arn
+}
