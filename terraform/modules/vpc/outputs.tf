@@ -5,7 +5,7 @@
 # VPC ID
 output "vpc_id" {
   description = "ID of the VPC"
-  value       = module.vpc.vpc_id
+  value       = aws_vpc.tf_vpc.id
 }
 
 ############################################################
@@ -15,7 +15,10 @@ output "vpc_id" {
 # Public Subnet IDs
 output "public_subnet_ids" {
   description = "IDs of the public subnets"
-  value       = module.vpc.public_subnet_ids
+  value = [
+    aws_subnet.tf_public_subnet_1a.id,
+    aws_subnet.tf_public_subnet_1b.id
+  ]
 }
 
 ############################################################
@@ -25,5 +28,8 @@ output "public_subnet_ids" {
 # Private Subnet IDs
 output "private_subnet_ids" {
   description = "IDs of the private subnets"
-  value       = module.vpc.private_subnet_ids
+  value = [
+    aws_subnet.tf_private_subnet_1a.id,
+    aws_subnet.tf_private_subnet_1b.id
+  ]
 }

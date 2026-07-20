@@ -15,3 +15,27 @@ variable "environment" {
   type        = string
   default     = "production"
 }
+
+############################################################
+# Networking Variables
+############################################################
+
+variable "vpc_cidr" {
+  description = "CIDR block for the VPC"
+  type        = string
+}
+
+variable "availability_zones" {
+  description = "Availability Zones"
+  type        = list(string)
+}
+
+variable "public_subnet_cidrs" {
+  description = "Public subnet CIDR blocks"
+  type        = list(string)
+}
+
+variable "private_subnet_cidrs" {
+  description = "Private subnet CIDR blocks"
+  type        = list(string)
+}
