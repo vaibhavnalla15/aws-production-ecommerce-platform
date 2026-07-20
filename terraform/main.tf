@@ -16,3 +16,19 @@ module "vpc" {
   public_subnet_cidrs  = var.public_subnet_cidrs
   private_subnet_cidrs = var.private_subnet_cidrs
 }
+
+############################################################
+# Security Groups Module
+############################################################
+
+# Creates the security groups for the e-commerce platform
+module "security_groups" {
+  source = "./modules/security-groups"
+
+  # Common configuration
+  common_tags    = local.common_tags
+  resource_names = local.resource_names
+
+  # Resource configuration
+  vpc_id = module.vpc.vpc_id
+}
