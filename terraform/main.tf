@@ -1,4 +1,23 @@
 ############################################################
+# Amazon Linux 2023 AMI
+############################################################
+
+data "aws_ami" "amazon_linux_2023" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-2023.*-x86_64"]
+  }
+
+  filter {
+    name   = "state"
+    values = ["available"]
+  }
+}
+
+############################################################
 # VPC Module
 ############################################################
 
@@ -44,4 +63,24 @@ module "iam" {
   # Common configuration
   common_tags    = local.common_tags
   resource_names = local.resource_names
+}
+
+############################################################
+# Launch Template Module
+############################################################
+
+module "launch_template" {
+  source = "./modules/launch-template"
+
+  # Common configuration
+  common_tags    = local.common_tags
+  resource_names = local.resource_names
+
+  # Infrastructure dependencies
+  ec2_instance_profile_name = module.iam.ec2_instance_profile_name
+  ec2_security_group_id     = module.security_groups.ec2_security_group_id
+
+  # EC2 configuration
+  ami_id        = data.aws_ami.amazon_linux_2023.id
+  instance_type = var.instance_type
 }

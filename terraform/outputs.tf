@@ -65,3 +65,17 @@ output "ec2_instance_profile_name" {
   description = "Name of the EC2 Instance Profile"
   value       = module.iam.ec2_instance_profile_name
 }
+
+############################################################
+# Launch Template Outputs
+############################################################
+
+output "launch_template_id" {
+  description = "Launch Template ID"
+  value       = module.launch_template.launch_template_id
+}
+
+output "launch_template_latest_version" {
+  description = "Latest Launch Template Version"
+  value       = module.launch_template.launch_template_latest_version
+}

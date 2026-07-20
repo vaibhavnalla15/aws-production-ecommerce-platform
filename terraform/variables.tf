@@ -39,3 +39,11 @@ variable "private_subnet_cidrs" {
   description = "Private subnet CIDR blocks"
   type        = list(string)
 }
+
+############################################################
+# Launch Template Variables
+############################################################
+variable "instance_type" {
+  description = "EC2 instance type"
+  type        = string
+}
