@@ -23,4 +23,10 @@ locals {
     cloudfront      = "tf-cloudfront-ecommerce"
   }
 
+  ############################################################
+  # Domain Configuration
+  ############################################################
+
+  application_domain = "${var.subdomain}.${var.root_domain_name}"
+
 }

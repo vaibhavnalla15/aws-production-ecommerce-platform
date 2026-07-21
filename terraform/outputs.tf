@@ -140,3 +140,12 @@ output "hosted_zone_name_servers" {
   description = "Route 53 Hosted Zone Name Servers"
   value       = module.route53.hosted_zone_name_servers
 }
+
+############################################################
+# ACM Outputs
+############################################################
+
+output "certificate_arn" {
+  description = "ACM Certificate ARN"
+  value       = module.acm.certificate_arn
+}

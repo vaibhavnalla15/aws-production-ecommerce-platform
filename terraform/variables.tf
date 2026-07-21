@@ -76,3 +76,17 @@ variable "domain_name" {
   description = "Root domain name"
   type        = string
 }
+
+############################################################
+# Application Domain Configuration
+############################################################
+
+variable "root_domain_name" {
+  description = "Root domain name"
+  type        = string
+}
+
+variable "subdomain" {
+  description = "Application subdomain"
+  type        = string
+}

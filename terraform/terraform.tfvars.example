@@ -38,3 +38,10 @@ db_password = "<db-secure-password>"
 ############################################################
 
 domain_name = "<domain_name>"
+
+############################################################
+# Application Domain Configuration
+############################################################
+
+root_domain_name = "<root_domain_name>"
+subdomain        = "<subdomain>"

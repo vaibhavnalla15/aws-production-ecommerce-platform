@@ -156,3 +156,25 @@ module "route53" {
 
   domain_name = var.domain_name
 }
+
+############################################################
+# ACM Module
+############################################################
+
+module "acm" {
+  source = "./modules/acm"
+
+  providers = {
+    aws = aws.us_east_1
+  }
+
+  # Common configuration
+  common_tags = local.common_tags
+
+  # Domain configuration
+  domain_name = local.application_domain
+
+  subject_alternative_names = []
+
+  hosted_zone_id = module.route53.hosted_zone_id
+}
