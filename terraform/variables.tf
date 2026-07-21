@@ -67,3 +67,12 @@ variable "db_password" {
   type        = string
   sensitive   = true
 }
+
+############################################################
+# Domain Configuration
+############################################################
+
+variable "domain_name" {
+  description = "Root domain name"
+  type        = string
+}

@@ -144,3 +144,15 @@ module "rds" {
   db_username = var.db_username
   db_password = var.db_password
 }
+
+############################################################
+# Route 53 Module
+############################################################
+
+module "route53" {
+  source = "./modules/route53"
+
+  common_tags = local.common_tags
+
+  domain_name = var.domain_name
+}

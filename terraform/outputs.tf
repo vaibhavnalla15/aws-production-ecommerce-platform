@@ -126,3 +126,17 @@ output "db_instance_identifier" {
   description = "RDS instance identifier"
   value       = module.rds.db_instance_identifier
 }
+
+############################################################
+# Route 53 Outputs
+############################################################
+
+output "hosted_zone_id" {
+  description = "Route 53 Hosted Zone ID"
+  value       = module.route53.hosted_zone_id
+}
+
+output "hosted_zone_name_servers" {
+  description = "Route 53 Hosted Zone Name Servers"
+  value       = module.route53.hosted_zone_name_servers
+}
