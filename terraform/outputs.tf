@@ -149,3 +149,22 @@ output "certificate_arn" {
   description = "ACM Certificate ARN"
   value       = module.acm.certificate_arn
 }
+
+############################################################
+# CloudFront Outputs
+############################################################
+
+output "cloudfront_distribution_id" {
+  description = "CloudFront Distribution ID"
+  value       = module.cloudfront.distribution_id
+}
+
+output "cloudfront_distribution_domain_name" {
+  description = "CloudFront Distribution Domain Name"
+  value       = module.cloudfront.distribution_domain_name
+}
+
+output "cloudfront_hosted_zone_id" {
+  description = "CloudFront Hosted Zone ID"
+  value       = module.cloudfront.distribution_hosted_zone_id
+}

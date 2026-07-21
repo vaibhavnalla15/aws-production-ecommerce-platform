@@ -64,6 +64,37 @@ resource "aws_lb_listener" "tf_http_listener" {
   protocol          = "HTTP"
 
   default_action {
+    type = "redirect"
+
+    redirect {
+      port        = "443"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
+    }
+  }
+
+  tags = merge(
+    var.common_tags,
+    {
+      Name = local.resource_names.http_listener
+    }
+  )
+}
+
+############################################################
+# HTTPS Listener
+############################################################
+
+resource "aws_lb_listener" "tf_https_listener" {
+  load_balancer_arn = aws_lb.tf_alb.arn
+
+  port     = 443
+  protocol = "HTTPS"
+
+  ssl_policy      = "ELBSecurityPolicy-TLS13-1-2-2021-06"
+  certificate_arn = var.certificate_arn
+
+  default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.tf_target_group.arn
   }
@@ -71,7 +102,7 @@ resource "aws_lb_listener" "tf_http_listener" {
   tags = merge(
     var.common_tags,
     {
-      Name = local.resource_names.http_listener
+      Name = local.resource_names.https_listener
     }
   )
 }

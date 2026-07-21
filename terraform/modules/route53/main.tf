@@ -12,3 +12,4 @@ resource "aws_route53_zone" "tf_hosted_zone" {
     }
   )
 }
+

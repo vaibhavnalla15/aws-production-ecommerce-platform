@@ -7,35 +7,31 @@ variable "common_tags" {
   type        = map(string)
 }
 
-variable "resource_names" {
-  description = "Resource names"
-  type        = map(string)
-}
-
 ############################################################
-# Networking
+# CloudFront Configuration
 ############################################################
 
-variable "vpc_id" {
-  description = "VPC ID"
+variable "application_domain" {
+  description = "Application domain name"
   type        = string
 }
-
-variable "public_subnet_ids" {
-  description = "Public subnet IDs"
-  type        = list(string)
-}
-
-variable "alb_security_group_id" {
-  description = "ALB Security Group ID"
-  type        = string
-}
-
-############################################################
-# HTTPS Configuration
-############################################################
 
 variable "certificate_arn" {
   description = "ACM Certificate ARN"
   type        = string
+}
+
+variable "alb_dns_name" {
+  description = "Application Load Balancer DNS name"
+  type        = string
+}
+
+############################################################
+# Domain Configuration
+############################################################
+
+variable "aliases" {
+  description = "Alternate domain names for the CloudFront distribution"
+  type        = list(string)
+  default     = []
 }

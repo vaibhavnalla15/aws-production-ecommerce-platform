@@ -100,6 +100,9 @@ module "alb" {
   vpc_id                = module.vpc.vpc_id
   public_subnet_ids     = module.vpc.public_subnet_ids
   alb_security_group_id = module.security_groups.alb_security_group_id
+
+  # HTTPS
+  certificate_arn = module.acm.certificate_arn
 }
 
 ############################################################
@@ -152,8 +155,10 @@ module "rds" {
 module "route53" {
   source = "./modules/route53"
 
+  # Common configuration
   common_tags = local.common_tags
 
+  # Domain configuration
   domain_name = var.domain_name
 }
 
@@ -174,7 +179,45 @@ module "acm" {
   # Domain configuration
   domain_name = local.application_domain
 
-  subject_alternative_names = []
-
   hosted_zone_id = module.route53.hosted_zone_id
+}
+
+############################################################
+# CloudFront
+############################################################
+
+module "cloudfront" {
+  source = "./modules/cloudfront"
+
+  # Common configuration
+  common_tags = local.common_tags
+
+  # Origin
+  alb_dns_name = module.alb.alb_dns_name
+
+  # HTTPS
+  certificate_arn = module.acm.certificate_arn
+
+  # Domain
+  application_domain = local.application_domain
+
+  aliases = [
+    local.application_domain
+  ]
+}
+
+############################################################
+# Route53 Alias Record
+############################################################
+
+resource "aws_route53_record" "cloudfront_alias" {
+  zone_id = module.route53.hosted_zone_id
+  name    = local.application_domain
+  type    = "A"
+
+  alias {
+    name                   = module.cloudfront.distribution_domain_name
+    zone_id                = module.cloudfront.distribution_hosted_zone_id
+    evaluate_target_health = false
+  }
 }

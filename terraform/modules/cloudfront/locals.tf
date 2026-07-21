@@ -5,10 +5,7 @@
 locals {
 
   resource_names = {
-    alb            = "tf-alb-ecommerce"
-    target_group   = "tf-alb-target-group"
-    http_listener  = "tf-http-listener"
-    https_listener = "tf-https-listener"
+    distribution = "tf-cloudfront-distribution"
   }
 
 }

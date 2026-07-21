@@ -21,6 +21,7 @@ locals {
     ec2             = "tf-ec2-ecommerce"
     rds             = "tf-rds-postgres-ecommerce"
     cloudfront      = "tf-cloudfront-ecommerce"
+    https_listener  = "tf-https-listener"
   }
 
   ############################################################
