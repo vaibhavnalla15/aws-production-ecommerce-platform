@@ -101,3 +101,25 @@ module "alb" {
   public_subnet_ids     = module.vpc.public_subnet_ids
   alb_security_group_id = module.security_groups.alb_security_group_id
 }
+
+############################################################
+# Auto Scaling Module
+############################################################
+
+module "autoscaling" {
+  source = "./modules/autoscaling"
+
+  # Common configuration
+  common_tags    = local.common_tags
+  resource_names = local.resource_names
+
+  # Networking
+  private_subnet_ids = module.vpc.private_subnet_ids
+
+  # Launch Template
+  launch_template_id             = module.launch_template.launch_template_id
+  launch_template_latest_version = module.launch_template.launch_template_latest_version
+
+  # Load Balancer
+  target_group_arn = module.alb.target_group_arn
+}

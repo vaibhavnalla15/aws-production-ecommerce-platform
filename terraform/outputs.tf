@@ -93,3 +93,17 @@ output "target_group_arn" {
   description = "Target Group ARN"
   value       = module.alb.target_group_arn
 }
+
+############################################################
+# Auto Scaling Outputs
+############################################################
+
+output "autoscaling_group_name" {
+  description = "Auto Scaling Group name"
+  value       = module.autoscaling.autoscaling_group_name
+}
+
+output "autoscaling_group_arn" {
+  description = "Auto Scaling Group ARN"
+  value       = module.autoscaling.autoscaling_group_arn
+}
