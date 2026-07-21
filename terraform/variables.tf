@@ -47,3 +47,23 @@ variable "instance_type" {
   description = "EC2 instance type"
   type        = string
 }
+
+############################################################
+# Database Configuration
+############################################################
+
+variable "db_name" {
+  description = "Database name"
+  type        = string
+}
+
+variable "db_username" {
+  description = "Database administrator username"
+  type        = string
+}
+
+variable "db_password" {
+  description = "Database administrator password"
+  type        = string
+  sensitive   = true
+}

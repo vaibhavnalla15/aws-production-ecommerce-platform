@@ -107,3 +107,22 @@ output "autoscaling_group_arn" {
   description = "Auto Scaling Group ARN"
   value       = module.autoscaling.autoscaling_group_arn
 }
+
+############################################################
+# RDS Outputs
+############################################################
+
+output "db_instance_endpoint" {
+  description = "RDS endpoint"
+  value       = module.rds.db_instance_endpoint
+}
+
+output "db_instance_port" {
+  description = "RDS port"
+  value       = module.rds.db_instance_port
+}
+
+output "db_instance_identifier" {
+  description = "RDS instance identifier"
+  value       = module.rds.db_instance_identifier
+}

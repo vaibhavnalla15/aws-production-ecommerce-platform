@@ -123,3 +123,24 @@ module "autoscaling" {
   # Load Balancer
   target_group_arn = module.alb.target_group_arn
 }
+
+############################################################
+# RDS Module
+############################################################
+
+module "rds" {
+  source = "./modules/rds"
+
+  # Common configuration
+  common_tags    = local.common_tags
+  resource_names = local.resource_names
+
+  # Networking
+  private_subnet_ids    = module.vpc.private_subnet_ids
+  rds_security_group_id = module.security_groups.rds_security_group_id
+
+  # Database
+  db_name     = var.db_name
+  db_username = var.db_username
+  db_password = var.db_password
+}
