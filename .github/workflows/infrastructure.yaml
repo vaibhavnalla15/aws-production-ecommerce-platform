@@ -3,7 +3,7 @@ name: Infrastructure CI/CD
 
 # When this workflow should run
 on:
-  # Trigger on push to main branch
+  # Trigger on push to the main branch
   push:
     branches:
       - main
@@ -11,7 +11,7 @@ on:
       - "terraform/**"
       - ".github/workflows/*.yaml" # Trigger when any workflow YAML file changes
 
-  # Trigger on pull requests to main branch
+  # Trigger on pull requests targeting the main branch
   pull_request:
     branches:
       - main
@@ -19,28 +19,28 @@ on:
       - "terraform/**"
       - ".github/workflows/*.yaml" # Trigger when any workflow YAML file changes
 
-  # Allow manual execution from GitHub UI
+  # Allow manual execution from GitHub Actions
   workflow_dispatch:
 
 jobs:
-  # Terraform validation job
-  terraform-validation:
-    name: Terraform Validation
+  # Terraform CI job
+  terraform:
+    name: Terraform
 
-    # Use Ubuntu runner
+    # Use the latest Ubuntu runner
     runs-on: ubuntu-latest
 
-    # Run all commands inside terraform directory
+    # Execute all commands inside the terraform directory
     defaults:
       run:
         working-directory: terraform
 
     steps:
-      # Checkout repository code
+      # Checkout repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Set up AWS credentials from secrets
+      # Configure AWS credentials
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -48,11 +48,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      # Install Terraform CLI
+      # Install Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      # Check Terraform file formatting
+      # Check Terraform formatting
       - name: Terraform Format Check
         run: terraform fmt -check -recursive
 
@@ -63,3 +63,7 @@ jobs:
       # Validate Terraform configuration
       - name: Terraform Validate
         run: terraform validate
+
+      # Generate Terraform execution plan
+      - name: Terraform Plan
+        run: terraform plan -input=false
