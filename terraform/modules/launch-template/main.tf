@@ -18,7 +18,11 @@ resource "aws_launch_template" "tf_launch_template" {
   }
 
   user_data = base64encode(
-    file("${path.root}/scripts/user-data.sh")
+    templatefile("${path.module}/../../scripts/user-data.sh", {
+      docker_image     = var.docker_image
+      docker_image_tag = var.docker_image_tag
+      application_port = var.application_port
+    })
   )
 
   tag_specifications {

@@ -83,6 +83,13 @@ module "launch_template" {
   # EC2 configuration
   ami_id        = data.aws_ami.amazon_linux_2023.id
   instance_type = var.instance_type
+
+  # Docker
+  docker_image     = var.docker_image
+  docker_image_tag = var.docker_image_tag
+
+  # Application
+  application_port = var.application_port
 }
 
 ############################################################

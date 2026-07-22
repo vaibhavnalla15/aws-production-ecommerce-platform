@@ -42,3 +42,25 @@ variable "instance_type" {
   type        = string
 }
 
+############################################################
+# Docker Configuration
+############################################################
+
+variable "docker_image" {
+  description = "Docker Hub image for CloudCart"
+  type        = string
+}
+
+variable "docker_image_tag" {
+  description = "Docker image tag"
+  type        = string
+}
+
+############################################################
+# Application Configuration
+############################################################
+
+variable "application_port" {
+  description = "Port exposed by the CloudCart application container"
+  type        = number
+}
