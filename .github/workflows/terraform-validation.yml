@@ -1,0 +1,54 @@
+# Name of the workflow displayed in GitHub Actions
+name: Terraform Validation
+
+# Define when this workflow should run
+on:
+  # Run automatically when code is pushed to the main branch
+  push:
+    branches:
+      - main
+    paths:
+      - "terraform/**"
+      - ".github/workflows/*.yml" # Trigger when any workflow YAML file changes
+
+  # Run when a Pull Request targets the main branch
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "terraform/**"
+      - ".github/workflows/*.yml" # Trigger when any workflow YAML file changes
+
+  # Allow the workflow to be run manually from the GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  terraform-validation:
+    # GitHub-hosted runner
+    runs-on: ubuntu-latest
+
+    # Execute all run commands from the Terraform directory
+    defaults:
+      run:
+        working-directory: terraform
+
+    steps:
+      # Step 1 - Download the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2 - Install Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      # Step 3 - Check Terraform formatting
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+
+      # Step 4 - Initialize Terraform
+      - name: Terraform Init
+        run: terraform init
+
+      # Step 5 - Validate Terraform configuration
+      - name: Terraform Validate
+        run: terraform validate
