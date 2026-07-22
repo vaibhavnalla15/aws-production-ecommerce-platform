@@ -54,6 +54,10 @@ jobs:
         with:
           terraform_version: 1.15.3
 
+      # Check Terraform formatting
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+
       # Generate terraform.tfvars from GitHub Variables and Secrets
       - name: Generate terraform.tfvars
         run: |
@@ -86,10 +90,6 @@ jobs:
 
           application_port = ${{ vars.APPLICATION_PORT }}
           EOF
-
-      # Check Terraform formatting
-      - name: Terraform Format Check
-        run: terraform fmt -check -recursive
 
       # Initialize Terraform
       - name: Terraform Init
