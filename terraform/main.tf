@@ -228,3 +228,14 @@ resource "aws_route53_record" "cloudfront_alias" {
     evaluate_target_health = false
   }
 }
+
+##################################################
+# SNS Module
+##################################################
+
+module "sns" {
+  source = "./modules/sns"
+
+  topic_name     = local.sns_topic_name
+  email_endpoint = local.notification_email
+}

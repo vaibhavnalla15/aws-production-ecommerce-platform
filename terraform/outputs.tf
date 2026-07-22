@@ -168,3 +168,17 @@ output "cloudfront_hosted_zone_id" {
   description = "CloudFront Hosted Zone ID"
   value       = module.cloudfront.distribution_hosted_zone_id
 }
+
+##################################################
+# SNS Outputs
+##################################################
+
+output "sns_topic_arn" {
+  description = "ARN of the SNS monitoring topic."
+  value       = module.sns.topic_arn
+}
+
+output "sns_topic_name" {
+  description = "Name of the SNS monitoring topic."
+  value       = module.sns.topic_name
+}

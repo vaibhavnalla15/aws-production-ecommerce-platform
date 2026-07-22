@@ -31,3 +31,12 @@ locals {
   application_domain = "${var.subdomain}.${var.root_domain_name}"
 
 }
+
+##################################################
+# SNS Configuration
+##################################################
+
+locals {
+  sns_topic_name     = var.sns_topic_name
+  notification_email = var.notification_email
+}

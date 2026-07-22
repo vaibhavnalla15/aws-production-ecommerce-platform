@@ -115,3 +115,17 @@ variable "application_port" {
   type        = number
   default     = 5000
 }
+
+##################################################
+# SNS Configuration
+##################################################
+
+variable "sns_topic_name" {
+  description = "Name of the SNS topic used for monitoring notifications."
+  type        = string
+}
+
+variable "notification_email" {
+  description = "Email address to receive CloudWatch alarm notifications."
+  type        = string
+}
