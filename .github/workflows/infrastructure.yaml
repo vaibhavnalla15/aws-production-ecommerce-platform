@@ -9,7 +9,7 @@ on:
       - main
     paths:
       - "terraform/**"
-      - ".github/workflows/*.yaml" # Trigger when any workflow YAML file changes
+      - ".github/workflows/infrastructure.yaml" # Trigger when any workflow YAML file changes
 
   # Trigger on pull requests targeting the main branch
   pull_request:
