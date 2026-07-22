@@ -1,0 +1,76 @@
+# Workflow name shown in GitHub Actions
+name: Infrastructure Deployment
+
+# Manual trigger only
+on:
+  workflow_dispatch:
+
+jobs:
+  # Terraform deployment job
+  terraform:
+    name: Terraform Apply
+
+    # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest
+
+    # Default working directory
+    defaults:
+      run:
+        working-directory: terraform
+
+    steps:
+      # Checkout repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Configure AWS credentials
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      # Setup Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.15.3
+
+      # Generate terraform.tfvars
+      - name: Generate Terraform Variables
+        run: |
+          cat <<EOF > terraform.tfvars
+          project_name      = "${{ vars.PROJECT_NAME }}"
+          environment       = "${{ vars.ENVIRONMENT }}"
+          aws_region        = "${{ vars.AWS_REGION }}"
+
+          vpc_cidr          = "${{ vars.VPC_CIDR }}"
+          availability_zones = ${{ vars.AVAILABILITY_ZONES }}
+
+          public_subnet_cidrs  = ${{ vars.PUBLIC_SUBNET_CIDRS }}
+          private_subnet_cidrs = ${{ vars.PRIVATE_SUBNET_CIDRS }}
+
+          instance_type = "${{ vars.INSTANCE_TYPE }}"
+
+          db_name     = "${{ vars.DB_NAME }}"
+          db_username = "${{ vars.DB_USERNAME }}"
+          db_password = "${{ secrets.DB_PASSWORD }}"
+
+          domain_name      = "${{ vars.DOMAIN_NAME }}"
+          root_domain_name = "${{ vars.ROOT_DOMAIN_NAME }}"
+          subdomain        = "${{ vars.SUBDOMAIN }}"
+
+          docker_image     = "${{ vars.DOCKER_IMAGE }}"
+          docker_image_tag = "${{ vars.DOCKER_IMAGE_TAG }}"
+
+          application_port = ${{ vars.APPLICATION_PORT }}
+          EOF
+
+      # Initialize Terraform
+      - name: Terraform Init
+        run: terraform init -input=false
+
+      # Apply Terraform changes
+      - name: Terraform Apply
+        run: terraform apply -input=false -auto-approve
