@@ -9,7 +9,7 @@ on:
       - main
     paths:
       - "cloudcart/**"
-      - ".github/workflows/*.yaml" # Trigger when any workflow YAML file changes
+      - ".github/workflows/application.yaml" # Trigger when any workflow YAML file changes
 
   # Allow manual execution from GitHub Actions
   workflow_dispatch:
