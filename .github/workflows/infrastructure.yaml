@@ -17,7 +17,7 @@ on:
       - main
     paths:
       - "terraform/**"
-      - ".github/workflows/*.yaml" # Trigger when any workflow YAML file changes
+      - ".github/workflows/infrastructure.yaml" # Trigger when any workflow YAML file changes
 
   # Allow manual execution from GitHub Actions
   workflow_dispatch:
