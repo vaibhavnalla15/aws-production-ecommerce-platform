@@ -8,7 +8,7 @@ on:
     branches:
       - main
     paths:
-      - "app/cloudcart/**"
+      - "cloudcart/**"
       - ".github/workflows/*.yaml" # Trigger when any workflow YAML file changes
 
   # Allow manual execution from GitHub Actions
@@ -42,8 +42,8 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: ./app/cloudcart
-          file: ./app/cloudcart/Dockerfile
+          context: ./cloudcart
+          file: ./cloudcart/Dockerfile
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/cloudcart:latest
