@@ -1,43 +1,46 @@
-# Name of the workflow displayed in GitHub Actions
-name: Terraform Validation
+# Workflow name shown in GitHub Actions
+name: Infrastructure CI/CD
 
-# Define when this workflow should run
+# When this workflow should run
 on:
-  # Run automatically when code is pushed to the main branch
+  # Trigger on push to main branch
   push:
     branches:
       - main
     paths:
       - "terraform/**"
-      - ".github/workflows/*.yml" # Trigger when any workflow YAML file changes
+      - ".github/workflows/infrastructure.yml" # Trigger when any workflow YAML file changes
 
-  # Run when a Pull Request targets the main branch
+  # Trigger on pull requests to main branch
   pull_request:
     branches:
       - main
     paths:
       - "terraform/**"
-      - ".github/workflows/*.yml" # Trigger when any workflow YAML file changes
+      - ".github/workflows/infrastructure.yml" # Trigger when any workflow YAML file changes
 
-  # Allow the workflow to be run manually from the GitHub Actions UI
+  # Allow manual execution from GitHub UI
   workflow_dispatch:
 
 jobs:
+  # Terraform validation job
   terraform-validation:
-    # GitHub-hosted runner
+    name: Terraform Validation
+
+    # Use Ubuntu runner
     runs-on: ubuntu-latest
 
-    # Execute all run commands from the Terraform directory
+    # Run all commands inside terraform directory
     defaults:
       run:
         working-directory: terraform
 
     steps:
-      # Step 1 - Download the repository
+      # Checkout repository code
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Step 2 - Configure AWS credentials
+      # Set up AWS credentials from secrets
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -45,18 +48,18 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      # Step 3 - Install Terraform
+      # Install Terraform CLI
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      # Step 4 - Check Terraform formatting
+      # Check Terraform file formatting
       - name: Terraform Format Check
         run: terraform fmt -check -recursive
 
-      # Step 5 - Initialize Terraform
+      # Initialize Terraform
       - name: Terraform Init
         run: terraform init
 
-      # Step 6 - Validate Terraform configuration
+      # Validate Terraform configuration
       - name: Terraform Validate
         run: terraform validate
