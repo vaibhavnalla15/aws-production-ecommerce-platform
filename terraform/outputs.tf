@@ -182,3 +182,36 @@ output "sns_topic_name" {
   description = "Name of the SNS monitoring topic."
   value       = module.sns.topic_name
 }
+
+#############################################
+# CloudWatch
+#############################################
+
+output "cloudwatch_dashboard_name" {
+  description = "CloudWatch dashboard name."
+  value       = module.cloudwatch.dashboard_name
+}
+
+output "ec2_cpu_alarm_name" {
+  description = "EC2 CPU utilization alarm name."
+  value       = module.cloudwatch.ec2_cpu_alarm_name
+}
+
+output "alb_http_5xx_alarm_name" {
+  description = "ALB HTTP 5XX alarm name."
+  value       = module.cloudwatch.alb_http_5xx_alarm_name
+}
+
+#############################################
+# ALB CloudWatch Outputs
+#############################################
+
+output "alb_arn_suffix" {
+  description = "Application Load Balancer ARN suffix."
+  value       = module.alb.alb_arn_suffix
+}
+
+output "target_group_arn_suffix" {
+  description = "Target Group ARN suffix."
+  value       = module.alb.target_group_arn_suffix
+}

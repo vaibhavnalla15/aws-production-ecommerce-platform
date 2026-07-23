@@ -129,3 +129,12 @@ variable "notification_email" {
   description = "Email address to receive CloudWatch alarm notifications."
   type        = string
 }
+
+#############################################
+# CloudWatch
+#############################################
+
+variable "cloudwatch_dashboard_name" {
+  description = "Name of the CloudWatch dashboard."
+  type        = string
+}

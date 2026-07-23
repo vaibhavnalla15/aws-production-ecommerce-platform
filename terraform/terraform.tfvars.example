@@ -65,3 +65,9 @@ application_port = 5000
 
 sns_topic_name    = "tf-sns-monitoring-ecommerce"
 notification_email = "your-email@example.com"
+
+#############################################
+# CloudWatch
+#############################################
+
+cloudwatch_dashboard_name = "tf-cloudwatch-monitoring-ecommerce"

@@ -40,3 +40,11 @@ locals {
   sns_topic_name     = var.sns_topic_name
   notification_email = var.notification_email
 }
+
+#############################################
+# CloudWatch
+#############################################
+
+locals {
+  cloudwatch_dashboard_name = var.cloudwatch_dashboard_name
+}

@@ -239,3 +239,19 @@ module "sns" {
   topic_name     = local.sns_topic_name
   email_endpoint = local.notification_email
 }
+
+#############################################
+# CloudWatch
+#############################################
+
+module "cloudwatch" {
+  source = "./modules/cloudwatch"
+
+  dashboard_name         = local.cloudwatch_dashboard_name
+  autoscaling_group_name = module.autoscaling.autoscaling_group_name
+
+  alb_arn_suffix          = module.alb.alb_arn_suffix
+  target_group_arn_suffix = module.alb.target_group_arn_suffix
+
+  sns_topic_arn = module.sns.topic_arn
+}
