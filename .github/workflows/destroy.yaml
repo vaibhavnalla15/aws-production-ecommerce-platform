@@ -65,6 +65,11 @@ jobs:
           docker_image_tag = "${{ vars.DOCKER_IMAGE_TAG }}"
 
           application_port = ${{ vars.APPLICATION_PORT }}
+
+          sns_topic_name = "${{ vars.SNS_TOPIC_NAME }}"
+          notification_email = "${{ vars.NOTIFICATION_EMAIL }}"
+
+          cloudwatch_dashboard_name = "${{ vars.CLOUDWATCH_DASHBOARD_NAME }}"
           EOF
 
       # Initialize Terraform
