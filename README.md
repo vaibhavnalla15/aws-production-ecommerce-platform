@@ -50,37 +50,25 @@ This project demonstrates practical experience with:
 | Resource                      | URL                                          |
 | ----------------------------- | -------------------------------------------- |
 | **CloudCart Application**     | https://cloudcart.betterway.cloud            |
-| **Application Documentation** | [`cloudcart/README.md`](cloudcart/README.md) |
+| **Application Documentation** | [`CloudCart(Click Here)`](cloudcart/README.md) |
 
 > **Note**
 >
 > The live application may not always be available because AWS resources are intentionally destroyed after demonstrations to avoid unnecessary cloud costs.
 
---- 
+---
 
 Experience CloudCart running on a production-style AWS infrastructure.
 
-# 🎥 Project Demonstration
-
-Experience CloudCart through a short production deployment walkthrough.
+# Project Demonstration
 
 <div align="center">
 
-<a href="https://github.com/vaibhavnalla15/aws-production-ecommerce-platform/releases/download/v1.0.0/cloudcart-demo.mp4">
+<a>
   <img src="assets/screenshots/terraform/cloudcart-production-homepage.png" alt="CloudCart Production Homepage" width="100%">
 </a>
 
-### ▶️ Watch the CloudCart Production Demo
-
-**https://cloudcart.betterway.cloud**
-
-*Click the image to watch the demonstration.*
-
 </div>
-
-> **Note**
->
-> The AWS infrastructure is intentionally destroyed after demonstrations to optimize cloud costs. The recorded walkthrough showcases the deployed production environment.
 
 ---
 
