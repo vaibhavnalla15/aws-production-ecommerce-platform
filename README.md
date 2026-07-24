@@ -80,6 +80,16 @@ Experience CloudCart running on a production-grade AWS infrastructure through a 
 
 ---
 
+# 🏗️ AWS Architecture Diagram
+
+The following architecture illustrates the complete production deployment implemented in this repository.
+
+<div align="center">
+
+![CloudCart AWS Architecture](assets/cloudcart-production-architecture-diagram.png)
+
+</div>
+
 The architecture includes:
 
 - Amazon Route 53
