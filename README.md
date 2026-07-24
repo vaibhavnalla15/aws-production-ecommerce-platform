@@ -60,27 +60,25 @@ This project demonstrates practical experience with:
 
 Experience CloudCart running on a production-style AWS infrastructure.
 
-# Project Demonstration
+# 🎥 Project Demonstration
+
+Experience CloudCart running on a production-grade AWS infrastructure through a short demonstration.
 
 <div align="center">
 
-<a>
+<a href="https://youtu.be/tVlpVsop3m0" target="_blank">
   <img src="assets/screenshots/terraform/cloudcart-production-homepage.png" alt="CloudCart Production Homepage" width="100%">
 </a>
+
+### ▶️ Watch the CloudCart Production Demo
+
+**🎬 Demo Video:** https://youtu.be/tVlpVsop3m0
+
+*Click the image to watch the demonstration.*
 
 </div>
 
 ---
-
-# 🏗️ AWS Architecture Diagram
-
-The following architecture illustrates the complete production deployment implemented in this repository.
-
-<div align="center">
-
-![CloudCart AWS Architecture](assets/cloudcart-production-architecture-diagram.png)
-
-</div>
 
 The architecture includes:
 
