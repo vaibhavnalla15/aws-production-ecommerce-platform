@@ -86,7 +86,7 @@ The following architecture illustrates the complete production deployment implem
 
 <div align="center">
 
-![CloudCart AWS Architecture](assets/cloudcart-production-architecture-diagram.png)
+![CloudCart AWS Architecture](assets/cloudcart-architecture-diagram.png)
 
 </div>
 
